@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/toolbar_book_share"
+        android:title="공유"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/toolbar_book_note"
+        android:title="노트"
+        app:showAsAction="ifRoom" />
+    <group>
+        <item
+            android:id="@+id/toolbar_book_edit"
+            android:title="책 정보 수정"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/toolbar_book_delete"
+            android:title="삭제"
+            app:showAsAction="never" />
+    </group>
+</menu>

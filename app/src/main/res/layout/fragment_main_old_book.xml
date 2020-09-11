@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainOldBookFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/main_old_book_booktitle"
+        android:text="책 이름"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="-6sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        />
+
+    <TextView
+        android:id="@+id/main_old_book_bookwriter"
+        android:text="저자명"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="6sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        />
+
+    <LinearLayout
+        android:layout_width="216dp"
+        android:layout_height="216dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="103dp"
+        android:background="#666666">
+
+        <!--
+        <shape android:shape="oval"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <size android:width="216dp"
+                android:height="216dp" />
+
+            <gradient
+                android:angle="90"
+                android:startColor="#000000"
+                android:endColor="#FFFFFF"
+                android:type="linear" />
+
+        </shape>
+        -->
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/button_main_old_book_bookcover"
+        android:layout_width="@dimen/main_old_book_cover_width"
+        android:layout_height="@dimen/main_old_book_cover_height"
+        android:background="#cccccc"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-301dp" />
+
+</LinearLayout>

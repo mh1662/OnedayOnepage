@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".booknew.BookNewContentsFragment">
+
+    <ImageView
+        android:layout_width="@dimen/main_old_book_cover_width"
+        android:layout_height="@dimen/main_old_book_cover_height"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/cardview_dark_background"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FFC000"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp" >
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_new_title" />
+
+            <EditText
+                android:id="@+id/book_new_title"
+                android:layout_width="244dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/book_new_title_hint" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_new_writer" />
+
+            <EditText
+                android:id="@+id/book_new_writer"
+                android:layout_width="244dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/book_new_writer_hint" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_new_publish" />
+
+            <EditText
+                android:id="@+id/book_new_publish"
+                android:layout_width="244dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/book_new_publish_hint" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_new_ym" />
+
+            <EditText
+                android:id="@+id/book_new_ym"
+                android:layout_width="244dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/book_new_publishYM_hint" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_new_tag" />
+
+            <EditText
+                android:id="@+id/book_new_tag"
+                android:layout_width="244dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/book_new_tag_hint" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_new_goal" />
+
+            <EditText
+                android:id="@+id/book_new_goal"
+                android:layout_width="244dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/book_new_goalYM_hint" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

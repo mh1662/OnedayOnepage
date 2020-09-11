@@ -1,0 +1,135 @@
+<resources>
+    <!-- -->
+    <string name="app_name">OnedayOnepage</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="word_sample">Hello second fragment. Arg: %1$s</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- activity label start -->
+    <string name="activity_login">login activity</string>
+    <string name="activity_main">main activity</string>
+    <string name="activity_book_search">book search activity</string>
+    <string name="activity_book_detail">book detail activity</string>
+    <string name="activity_book_new">new book activity</string>
+    <string name="activity_book_edit">edit book activity</string>
+    <string name="activity_add_note">add note activity</string>
+    <string name="activity_library">library activity</string>
+    <string name="activity_calendar">calendar activity</string>
+    <string name="activity_mypage">mypage activity</string>
+    <!-- activity label end -->
+
+    <!-- fragment label start -->
+    <string name="fragment_splash">splash fragment</string>
+
+    <string name="fragment_login_contents">login contents fragment</string>
+    <string name="fragment_login_no_google_alert">no google user alert</string>
+    <string name="fragment_login_sign_up_1">sign up fragment1</string>
+    <string name="fragment_login_sign_up_2">sign up fragment2</string>
+
+    <string name="fragment_main_old_book">old book fragment</string>
+    <string name="fragment_main_no_book">no book fragment</string>
+
+    <string name="fragment_search_contents">search contents fragment</string>
+    <string name="fragment_searchbar">search bar fragment</string>
+    <string name="fragment_search_result">search result fragment</string>
+
+    <string name="fragment_book_detail_contents">book detail content fragment</string>
+    <string name="fragment_book_detail_excerpt_text">excerpt text fragment</string>
+    <string name="fragment_book_detail_excerpt_image">excerpt image fragment</string>
+    <string name="fragment_book_detail_memo">memo fragment</string>
+
+    <string name="fragment_write_note">write note fragment</string>
+
+    <string name="fragment_library_style1">library style1 fragment</string>
+    <string name="fragment_library_style2">library style2 fragment</string>
+    <string name="fragment_library_style3">library style3 fragment</string>
+
+    <string name="fragment_calender_contents">calender fragment</string>
+
+    <string name="fragment_mypage_contents">mypage fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- fragment label end -->
+
+    <!-- MAIN start -->
+    <string name="main_no_book">"아직 읽고 있는 책이\n없어요"</string>
+    <string name="main_no_book_read_with_me">"함께 책읽기를 시작해볼까요?"</string>
+    <!-- MAIN end -->
+
+    <!-- book detail start -->
+    <string name="book_detail_title">"도서명"</string>
+    <string name="book_detail_writer">"저자"</string>
+    <string name="book_detail_publish">"출판사"</string>
+    <string name="book_detail_ym">"출판연도"</string>
+    <string name="book_detail_goal">"완독목표"</string>
+    <string name="book_detail_page">"쪽"</string>
+    <!-- book detail end -->
+
+    <!-- book new start -->
+    <string name="book_new_toolbar_title">"책 추가"</string>
+
+    <string name="book_new_title">"도서명"</string>
+    <string name="book_new_writer">"저자"</string>
+    <string name="book_new_publish">"출판사"</string>
+    <string name="book_new_ym">"출판연도"</string>
+    <string name="book_new_goal">"완독목표"</string>
+    <string name="book_new_tag">"태그"</string>
+    <string name="book_new_page">"쪽"</string>
+
+    <string name="book_new_title_hint">"책의 이름을 입력해주세요."</string>
+    <string name="book_new_writer_hint">"책의 저자를 입력해주세요."</string>
+    <string name="book_new_publish_hint">"책의 출판사를 입력해주세요."</string>
+    <string name="book_new_publishYM_hint">"날짜 선택"</string>
+    <string name="book_new_tag_hint">"경제, IT, 주식, 재태크, 금융"</string>
+    <string name="book_new_goalYM_hint">"날짜 선택"</string>
+    <!-- book new end -->
+
+    <!-- book edit start -->
+    <string name="book_edit_toolbar_title">"책 정보 수정"</string>
+
+    <string name="book_edit_title">"도서명"</string>
+    <string name="book_edit_writer">"저자"</string>
+    <string name="book_edit_publish">"출판사"</string>
+    <string name="book_edit_ym">"출판연도"</string>
+    <string name="book_edit_goal">"완독목표"</string>
+    <string name="book_edit_tag">"태그"</string>
+    <string name="book_edit_page">"쪽"</string>
+
+    <string name="book_edit_title_hint">"책의 이름을 입력해주세요."</string>
+    <string name="book_edit_writer_hint">"책의 저자를 입력해주세요."</string>
+    <string name="book_edit_publish_hint">"책의 출판사를 입력해주세요."</string>
+    <string name="book_edit_publishYM_hint">"날짜 선택"</string>
+    <string name="book_edit_tag_hint">"경제, IT, 주식, 재태크, 금융"</string>
+    <string name="book_edit_goalYM_hint">"날짜 선택"</string>
+    <!-- book edit end -->
+
+    <!-- book search start -->
+    <string name="book_search_view_hint">검색어를 입력해주세요.</string>
+    <!-- book search end -->
+
+    <!-- add note start -->
+    <string name="add_note_excerpt">발췌</string>
+    <string name="add_note_memo">메모</string>
+    <string name="add_note_text_hint">기억하고 싶은 한마디를 남겨보세요.</string>
+    <string name="add_note_page1">참고 페이지</string>
+    <string name="add_note_page2">쪽</string>
+
+    <!-- add note end -->
+
+</resources>

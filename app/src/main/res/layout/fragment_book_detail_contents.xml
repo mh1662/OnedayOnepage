@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/main_old_book_cover_width"
+        android:layout_height="@dimen/main_old_book_cover_height"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/cardview_dark_background"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#FFC000"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_detail_title" />
+
+            <TextView
+                android:id="@+id/book_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="도서명" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_detail_writer" />
+
+            <TextView
+                android:id="@+id/book_detail_writer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="저자명" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_detail_publish" />
+
+            <TextView
+                android:id="@+id/book_detail_publish"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="출판사명" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="84dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="@string/book_detail_ym" />
+
+            <TextView
+                android:id="@+id/book_detail_ym"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="YYYY년 MM월" />
+        </TableRow>
+    </TableLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/book_detail_excerptList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:background="#FF0000"/>
+
+</LinearLayout>
