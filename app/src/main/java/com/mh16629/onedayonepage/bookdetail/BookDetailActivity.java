@@ -27,8 +27,8 @@ public class BookDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
-                case R.id.home:
-                    finish();
+                case android.R.id.home:
+                    onBackPressed();
                     break;
                 case R.id.toolbar_book_share:
                     Toast toastMessage_share = Toast.makeText(this, "공유기능!", Toast.LENGTH_SHORT);

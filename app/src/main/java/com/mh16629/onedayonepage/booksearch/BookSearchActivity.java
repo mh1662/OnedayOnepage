@@ -28,8 +28,8 @@ public class BookSearchActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.home:
-//                onBackPressed();
+            case android.R.id.home:
+                onBackPressed();
                 return true;
             case R.id.toolbar_book_null:
                 Intent intentNewBook = new Intent(getApplicationContext(), BookNewActivity.class);
