@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO: toolbar 도서명이 나오는 것 수정.. 각 액티비티마다 툴바를 새로 만들것인지? 수정해서 쓸것인지? -->
-    <include
+    <android.support.v7.widget.Toolbar
         android:id="@+id/book_edit_toolbar"
-        layout="@layout/toolbar_book_detail"/>
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:theme="@style/BookDetailToolbar">
+
+        <TextView
+            android:id="@+id/book_edit_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/book_edit_toolbar_title" />
+
+    </android.support.v7.widget.Toolbar>
 
     <include layout="@layout/fragment_book_edit_contents"
         android:layout_width="match_parent"
