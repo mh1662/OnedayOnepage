@@ -28,12 +28,12 @@ public class BookSearchActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.home:
-//                onBackPressed();
+            case android.R.id.home:
+                onBackPressed();
                 return true;
             case R.id.toolbar_book_null:
-                Intent intentEdit = new Intent(getApplicationContext(), BookNewActivity.class);
-                startActivity(intentEdit);
+                Intent intentNewBook = new Intent(getApplicationContext(), BookNewActivity.class);
+                startActivity(intentNewBook);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -50,8 +50,6 @@ public class BookSearchActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 //        actionBar.setHomeAsUpIndicator(R.drawable.button_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
-
-        setTitle(R.string.activity_book_search);
 
 //        // 검색바 액션이벤트
 //        SearchView book_search_view = (SearchView) findViewById(R.id.book_search_view);
