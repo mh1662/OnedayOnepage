@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/book_search_toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -21,7 +21,7 @@
             android:lineSpacingExtra="8sp"
             android:text="@string/book_search_toolbar_title" />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <include layout="@layout/fragment_book_search_contents"
         android:layout_width="match_parent"

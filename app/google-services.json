@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "710084630780",
+    "firebase_url": "https://onedayonepage-7ede0.firebaseio.com",
+    "project_id": "onedayonepage-7ede0",
+    "storage_bucket": "onedayonepage-7ede0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710084630780:android:7c6e87d6223d7d7d3cdf79",
+        "android_client_info": {
+          "package_name": "com.mh16629.onedayonepage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710084630780-c3tjc8tlqfdtsolq377bh16n1poeb0dq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkQ0RCF2iLQkDsCpJk096QA6Q494Qk7NA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710084630780-c3tjc8tlqfdtsolq377bh16n1poeb0dq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
