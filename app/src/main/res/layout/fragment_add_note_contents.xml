@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".addnote.AddNoteContentsFragment">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/add_note_noteList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
