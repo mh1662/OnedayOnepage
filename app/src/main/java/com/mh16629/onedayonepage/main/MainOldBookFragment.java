@@ -89,7 +89,7 @@ public class MainOldBookFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                Log.d(TAG, "onCreateView - onclickListener");
+                Log.d(TAG, "onCreateView - coverButton Click");
                 // 도서 상세 화면(BookDetailActivity)으로 전이
                 Intent intent = new Intent(getActivity(), BookDetailActivity.class);
                 startActivity(intent);

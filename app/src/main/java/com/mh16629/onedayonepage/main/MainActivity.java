@@ -5,18 +5,23 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,6 +51,7 @@ import com.google.firebase.auth.PlayGamesAuthProvider;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.mh16629.onedayonepage.login.LoginActivity;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -58,16 +64,22 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     private Fragment fragmentMainOld;
     private Fragment fragmentMainNo;
 
-    private static final String TAG = "MainActivity";
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Log.d(TAG, "onCreate");
+
+        // 유저 로그인 체크
+        checkCurrentUser();
+        Log.d(TAG, "onCreate -> loginOK");
+
         setTheme(R.style.AppTheme_NoActionBar);
         setContentView(R.layout.activity_main);
 
@@ -80,12 +92,67 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
                 Intent intentEdit = new Intent(getApplicationContext(), BookSearchActivity.class);
                 startActivity(intentEdit);
             }
         });
+
+        // 네비게이션 드로어 오픈 이벤트
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        ImageButton naviButton = (ImageButton) findViewById(R.id.main_contents_naviButton);
+        naviButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.main_nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                menuItem.setChecked(true);
+                mDrawerLayout.closeDrawers();
+
+                switch (menuItem.getItemId()) {
+                    case R.id.main_navi_menu_library:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_calender:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_addBook:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_account:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_accountReset:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_evaluation:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_infoDesk:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                    case R.id.main_navi_menu_signOut:
+                        Log.d(TAG, "네비게이션 드로어 클릭: "+menuItem.getTitle());
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+
+
+
+        //FIXME: MainOldBook의 경우에만 사용할 수 있는 버튼. MainContentsFragement의 활용재고
+
 
         // Firebase storage 사용예
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -97,11 +164,14 @@ public class MainActivity extends AppCompatActivity {
     public void checkCurrentUser() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            //TODO: 유저 로그인ok
-
+            // 유저 로그인ok
+            Log.d(TAG, "checkCurrentUser: login OK");
         } else {
-            //TODO: 유저 로그인 정보 X
-
+            // 유저 로그인 정보 X -> 로그인화면으로 전이
+            Intent intentLogin = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intentLogin);
+            finish();
+            Log.d(TAG, "checkCurrentUser: login");
         }
     }
 
