@@ -15,7 +15,7 @@
         android:paddingTop="16dp">
 
         <ImageButton
-            android:id="@+id/main_contents_userprofile"
+            android:id="@+id/main_contents_naviButton"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:backgroundTint="#cccccc"

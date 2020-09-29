@@ -13,6 +13,8 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- TODO: Splash.xml구현 후 아래 부분 바꿔줄 것. -->
+        <!-- item name="android:windowBackground">@drawable/splash</item -->
         <item name="android:windowBackground">@drawable/ic_launcher_foreground</item>
     </style>
 
