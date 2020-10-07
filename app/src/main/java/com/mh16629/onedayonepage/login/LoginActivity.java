@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +24,7 @@ import java.util.List;
 
 import com.google.firebase.storage.FirebaseStorage;
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.account.SignOutDialog;
 import com.mh16629.onedayonepage.booksearch.BookSearchActivity;
 import com.mh16629.onedayonepage.databinding.ActivityLoginBinding;
 
@@ -33,7 +35,6 @@ public class LoginActivity extends BaseActivity implements
 
     private FirebaseAuth mAuth;
 
-    private GoogleSignInClient mGoogleSignInClient;
     private ActivityLoginBinding mBinding;
 
     @Override
@@ -46,7 +47,6 @@ public class LoginActivity extends BaseActivity implements
         // Button listeners
         mBinding.loginButtonGoogle.setOnClickListener(this);
         mBinding.loginButtonAnonymous.setOnClickListener(this);
-        mBinding.loginButtonSignOut.setOnClickListener(this);
 
     }
 
@@ -58,8 +58,6 @@ public class LoginActivity extends BaseActivity implements
             signInGoogle();
         } else if (i == R.id.login_button_anonymous) {
             signInAnonymous();
-        } else if (i == R.id.login_button_sign_out) {
-            signOut();
         }
     }
 
@@ -77,117 +75,13 @@ public class LoginActivity extends BaseActivity implements
      */
     private void signInAnonymous() {
         Log.d(TAG, "signInAnonymous");
-        Intent intentAnonymousLogin = new Intent(getApplicationContext(), AnonymousAuthActivity.class);
-        startActivity(intentAnonymousLogin);
+
+        AnonymousAlertDialog anonymousAlertDialog = new AnonymousAlertDialog(this);
+        anonymousAlertDialog.setCancelable(true);
+        anonymousAlertDialog.show();
+
+//        Intent intentAnonymousLogin = new Intent(getApplicationContext(), AnonymousAuthActivity.class);
+//        startActivity(intentAnonymousLogin);
     }
 
-    /**
-     * 로그아웃
-     */
-    private void signOut() {
-        Log.d(TAG, "signOut");
-        // TODO: logout 구현
-        FirebaseAuth.getInstance().signOut();
-    }
-
-//    public void createSignInIntent() {
-//        List<AuthUI.IdpConfig> providers = Arrays.asList(
-//                new AuthUI.IdpConfig.GoogleBuilder().build(),
-//                new AuthUI.IdpConfig.AnonymousBuilder().build());
-//
-//        startActivityForResult(
-//                AuthUI.getInstance()
-//                    .createSignInIntentBuilder()
-//                    .setAvailableProviders(providers)
-//                    .build(),
-//                RC_SIGN_IN);
-//    }
-
-//    /**
-//     * 로그인 과정 완료시 데이터가 전달되는 메소드
-//     * @param requestCode
-//     * @param resultCode
-//     * @param data
-//     */
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == RC_SIGN_IN) {
-//            IdpResponse response = IdpResponse.fromResultIntent(data);
-//
-//            if (resultCode == RESULT_OK) {
-//                // TODO: 로그인 성공
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//            } else {
-//                // TODO: 로그인 실패
-//
-//            }
-//        }
-//    }
-
-//    /**
-//     * 로그아웃
-//     */
-//    public void signOut() {
-//        AuthUI.getInstance()
-//                .signOut(this)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        // TODO: 로그아웃 완료
-//
-//
-//                    }
-//                });
-//    }
-//
-//    /**
-//     * 사용자 정보 삭제
-//     */
-//    public void delete() {
-//        AuthUI.getInstance()
-//                .delete(this)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        // TODO: 유저 삭제 완료
-//
-//                    }
-//                });
-//    }
-//
-//    /**
-//     * 로그인화면 설정(FirebaseUI사용)
-//     */
-//    public void themeAndLogo() {
-//        List<AuthUI.IdpConfig> providers = Collections.emptyList();
-//
-//        startActivityForResult(
-//                AuthUI.getInstance()
-//                    .createSignInIntentBuilder()
-//                    .setAvailableProviders(providers)
-//    // TODO: 로그인 화면 로고, 테마 설정
-//    //                .setLogo(R.drawable.logo)
-//    //                .setTheme(R.style.MySuperAppTheme)
-//                    .build(),
-//                RC_SIGN_IN);
-//    }
-//
-//    /**
-//     * 개인정보 처리방침 및 서비스 약관
-//     */
-//    public void privacyAndTerms() {
-//        List<AuthUI.IdpConfig> providers = Collections.emptyList();
-//
-//        startActivityForResult(
-//                AuthUI.getInstance()
-//                    .createSignInIntentBuilder()
-//                    .setAvailableProviders(providers)
-//                    .setTosAndPrivacyPolicyUrls(
-//                            "https://example.com/terms.html",
-//                            "https://example.com/privacy.html")
-//                    .build(),
-//                RC_SIGN_IN);
-//    }
 }

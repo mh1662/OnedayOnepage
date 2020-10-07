@@ -7,8 +7,13 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="nav_header_vertical_spacing">32dp</dimen>
+    <dimen name="text_vertical_spacing">8dp</dimen>
+    <dimen name="alert_icon_width">44dp</dimen>
+    <dimen name="alert_icon_height">44dp</dimen>
+    <dimen name="alert_dialog_width">276dp</dimen>
+    <dimen name="alert_dialog_height">200dp</dimen>
 
-    <!-- main -->
+    <!-- main start -->
     <dimen name="main_old_book_cover_width">152dp</dimen>
     <dimen name="main_old_book_cover_height">222dp</dimen>
 
@@ -18,4 +23,12 @@
     <dimen name="field_width_standard">160dp</dimen>
 
     <dimen name="button_horizontal_margin">8dp</dimen>
+    <!-- main end -->
+
+    <!-- account start -->
+    <dimen name="account_profile_width">90dp</dimen>
+    <dimen name="account_profile_height">90dp</dimen>
+    <!-- account end -->
+
+
 </resources>

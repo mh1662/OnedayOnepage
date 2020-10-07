@@ -25,11 +25,5 @@
             android:layout_height="wrap_content"
             android:text="@string/login_button_text_anonymous" />
 
-        <Button
-            android:id="@+id/login_button_sign_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login_button_text_sign_out" />
-
     </LinearLayout>
 </layout>

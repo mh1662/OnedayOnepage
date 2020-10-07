@@ -7,4 +7,14 @@
     <color name="grey_100">#F5F5F5</color>
     <color name="grey_300">#E0E0E0</color>
     <color name="grey_500">#9E9E9E</color>
+
+    <color name="secondary">#ecddd1</color>
+    <color name="body_default">#222222</color>
+    <color name="point">#ef5510</color>
+    <color name="icon_default">#666666</color>
+    <color name="inactive_shape">#d7d7d7</color>
+    <color name="inactive_font">#858585</color>
+    <color name="line_box">#acacac</color>
+    <color name="white_box">#fbfbfb</color>
+
 </resources>

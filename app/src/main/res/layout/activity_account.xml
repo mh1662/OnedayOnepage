@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="account"
+            type="com.mh16629.onedayonepage.account.AccountActivity"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".account.AccountActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/account_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:theme="@style/BookDetailToolbar">
+
+            <TextView
+                android:id="@+id/book_new_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/account_toolbar_title" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageButton
+            android:id="@+id/account_userPhoto"
+            android:layout_width="@dimen/account_profile_width"
+            android:layout_height="@dimen/account_profile_height"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/account_user_photo" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/text_vertical_spacing" >
+
+            <TextView
+                android:id="@+id/account_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/body_default"
+                android:lineSpacingExtra="8sp"
+                android:text="사용자 이름" />
+
+            <ImageButton
+                android:id="@+id/account_button_nameUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/account_userEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="유저 이메일" />
+
+        <TextView
+            android:id="@+id/account_userUid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uid" />
+
+        <Button
+            android:id="@+id/account_button_linkWithSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_linkWithSignIn" />
+
+        <!--Button
+            android:id="@+id/account_button_profileUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 업데이트" /-->
+
+        <Button
+            android:id="@+id/account_button_passwordUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_passwordUpdate" />
+
+        <Button
+            android:id="@+id/account_button_signOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_signOut" />
+
+        <Button
+            android:id="@+id/account_button_cleanup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_cleanup" />
+
+        <Button
+            android:id="@+id/account_button_userDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_userDelete" />
+
+    </LinearLayout>
+</layout>

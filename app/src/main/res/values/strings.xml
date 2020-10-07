@@ -71,7 +71,31 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">Login failed</string>
+
+
+    <string name="anonymous_login_alert">연동을 하지 않고 사용하면\n사용자 정보를 잃을 수 있어요!</string>
+    <string name="anonymous_login_yes">이대로 할래요</string>
+    <string name="anonymous_login_no">연동할래요</string>
+    <string name="anonymous_login_fail">익명로그인에 실패했어요. 다시 시도해주세요.</string>
     <!-- LOGIN end -->
+
+    <!-- ACCOUNT start -->
+    <string name="account_toolbar_title">계정 관리</string>
+
+    <string name="account_linkWithSignIn">계정 연동</string>
+    <string name="account_passwordUpdate">비밀번호 변경</string>
+    <string name="account_signOut">로그아웃</string>
+    <string name="account_cleanup">정보 초기화</string>
+    <string name="account_userDelete">회원 탈퇴</string>
+
+    <string name="account_signOut_alert">로그아웃하시겠습니까?</string>
+    <string name="account_signOut_no">아니오</string>
+    <string name="account_signOut_yes">네</string>
+
+    <string name="account_userDelete_alert">회원 탈퇴시 정보를 복구할 수 없습니다.\n정말 탈퇴하실건가요?</string>
+    <string name="account_userDelete_no">아니오</string>
+    <string name="account_userDelete_yes">회원탈퇴</string>
+    <!-- ACCOUNT end -->
 
     <!-- MAIN start -->
     <string name="main_no_book">아직 읽고 있는 책이\n없어요</string>
