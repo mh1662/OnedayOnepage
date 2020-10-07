@@ -55,6 +55,8 @@ public class GoogleSignInActivity extends BaseActivity implements
                 .build();
         // [END config_signin]
 
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -121,15 +123,8 @@ public class GoogleSignInActivity extends BaseActivity implements
      * 로그인
      */
     private void signIn() {
-        mAuth.signOut();
-
-        mGoogleSignInClient.signOut().addOnCompleteListener(this,
-                new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        updateUI(null);
-                    }
-                });
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     /**

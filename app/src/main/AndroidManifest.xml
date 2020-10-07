@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".account.AccountActivity"
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
         <!-- activity android:name=".main.SplashActivity"></activity -->
-        <activity android:name=".login.AnonymousAuthActivity" />
+        <activity android:name=".login.AnonymousAuth" />
         <activity android:name=".login.BaseActivity" />
         <activity android:name=".login.GoogleSignInActivity" />
         <activity
@@ -22,6 +25,7 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

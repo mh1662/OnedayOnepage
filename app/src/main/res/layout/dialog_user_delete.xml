@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/alert_dialog_width"
+    android:layout_height="@dimen/alert_dialog_height">
+
+    <ImageView
+        android:layout_width="@dimen/alert_icon_width"
+        android:layout_height="@dimen/alert_icon_height"
+        android:layout_marginTop="@dimen/icon_top_margin"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_alert"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/account_userDelete_alert"
+        android:gravity="center_horizontal"
+        android:textSize="14sp"
+        android:textColor="@color/body_default"
+        android:lineSpacingExtra="8sp"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/account_userDelete_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/icon_default"
+            android:lineSpacingExtra="10sp"
+            android:background="@android:color/transparent"
+            android:text="@string/account_userDelete_no"/>
+
+        <Button
+            android:id="@+id/account_userDelete_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/point"
+            android:lineSpacingExtra="10sp"
+            android:background="@android:color/transparent"
+            android:text="@string/account_userDelete_yes"/>
+
+    </LinearLayout>
+</RelativeLayout>
