@@ -79,6 +79,26 @@
     <string name="anonymous_login_fail">익명로그인에 실패했어요. 다시 시도해주세요.</string>
     <!-- LOGIN end -->
 
+    <!-- FIRST USER start -->
+    <string name="first_user_bottom_button_next">계속하기</string>
+    <string name="first_user_bottom_button_skip">나중에 할래요</string>
+    <string name="first_user_bottom_button_yes">아니에요</string>
+    <string name="first_user_bottom_button_no">맞아요!</string>
+
+    <string name="first_user_layout1_text1">서재에 들어가볼까요?</string>
+    <string name="first_user_layout1_text2">이름을 알려주세요.</string>
+    <string name="first_user_layout1_text3">사용자 이름을 입력해주세요.</string>
+
+    <string name="first_user_layout2_text1">서재에 들어가볼까요?</string>
+    <string name="first_user_layout2_text2">사용자 등록을 위한\n이메일이 필요해요.</string>
+    <string name="first_user_layout2_text3">abcd@email.com</string>
+
+    <string name="first_user_layout3_text1">서재에 들어가볼까요?</string>
+    <string name="first_user_layout3_text2">프로필 이미지를\n등록해보세요.</string>
+
+    <string name="first_user_layout4_text1">이 정보가 맞나요?</string>
+    <!-- FIRST USER end -->
+
     <!-- ACCOUNT start -->
     <string name="account_toolbar_title">계정 관리</string>
 

@@ -2,6 +2,7 @@ package com.mh16629.onedayonepage.login;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.ActivityAnonymousAuthBinding;
 
@@ -124,6 +126,29 @@ public class AnonymousAuth {
                     }
                 });
     }
+
+    /**
+     * 프로필 업데이트
+     */
+//    public void updateProfile(String userName, Uri ) {
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//        //FIXME: 유저 프로필 업데이트
+//        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//            .setDisplayName("Jane Q. User")
+//                .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+//                .build();
+//
+//        user.updateProfile(profileUpdates)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, "User profile updated.");
+//                        }
+//                    }
+//                });
+//    }
 
 //    private boolean validateLinkForm() {
 //        boolean valid = true;
