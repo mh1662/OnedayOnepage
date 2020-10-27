@@ -16,5 +16,6 @@
     <color name="inactive_font">#858585</color>
     <color name="line_box">#acacac</color>
     <color name="white_box">#fbfbfb</color>
+    <color name="white">#ffffff</color>
 
 </resources>
