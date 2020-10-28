@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.login.AnonymousAuth;
 
 import static com.mh16629.onedayonepage.firstuser.FirstUserPagerAdapter.*;
 
@@ -30,6 +32,7 @@ public class FirstUserActivity extends AppCompatActivity {
 
     FirstUserViewPager viewPager;
     FirstUserPagerAdapter pagerAdapter;
+    FragmentManager mFragmentManager;
 
     LinearLayout bottomButtonLayout1;
     LinearLayout bottomButtonLayout2;
@@ -37,6 +40,10 @@ public class FirstUserActivity extends AppCompatActivity {
     Button bottomButtonNext;
     Button bottomButtonYes;
     Button bottomButtonNo;
+
+    private String mFirstUserName;
+    private String mFirstUserEmail;
+    private Uri mFirstUserPhotoUri;
 
     // bottom layout level(viewpager 기반)
     public final static int BOTTOM_LAYOUT1_NAME_DISABLE = 0;
@@ -54,6 +61,7 @@ public class FirstUserActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
+        //TODO: addToBackStack사용..?
     }
 
     @Override
@@ -83,9 +91,11 @@ public class FirstUserActivity extends AppCompatActivity {
         pagerAdapter = new FirstUserPagerAdapter(getSupportFragmentManager(), BOTTOM_LAYOUT_COUNT);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(INDEX_FRAGMENT1_NAME);
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentManager.executePendingTransactions();
 
         bottomButtonNext.setOnClickListener(moveNextPageListener);
-        bottomButtonYes.setOnClickListener(moveNextPageListener);
+        bottomButtonYes.setOnClickListener(moveCompletePageListener);
         bottomButtonNo.setOnClickListener(moveBackPageListener);
 
         //bottom layout 초기설정
@@ -230,13 +240,34 @@ public class FirstUserActivity extends AppCompatActivity {
     /**
      * onClickListener
      *  bottom layout1 "계속하기"버튼, "나중에 할래요"버튼(bottomButtonNext)
-     *  bottom layout2 "맞아요!"버튼(bottomButtonYes)
      */
     View.OnClickListener moveNextPageListener = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             int tag = (int) view.getTag();
             if (tag < BOTTOM_LAYOUT_COUNT) {
+                //viewPager의 메모리 누수정책에 의해 각 fragment가 삭제되기 전 화면 이동시마다 로컬변수로 저장
+                getFragmentData(tag);
+                setNextFragmentLayout(tag);
+                viewPager.setCurrentItem(tag + 1);
+            }
+        }
+    };
+
+    /**
+     * onClickListener
+     *  bottom layout2 "맞아요!"버튼(bottomButtonYes)
+     */
+    View.OnClickListener moveCompletePageListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int tag = (int) view.getTag();
+            if (tag == INDEX_FRAGMENT4_COMPLETE) {
+                //익명 유저의 프로필 설정
+                AnonymousAuth mAuth = new AnonymousAuth(mContext);
+                mAuth.updateProfile(mFirstUserName, mFirstUserPhotoUri);
+
+                //FirstUser5CongrateFragment로 이동
                 setNextFragmentLayout(tag);
                 viewPager.setCurrentItem(tag + 1);
             }
@@ -264,5 +295,30 @@ public class FirstUserActivity extends AppCompatActivity {
         }
     };
 
+    @SuppressLint("ResourceType")
+    private void getFragmentData(int fragmentNo) {
+        Fragment currentFragment = pagerAdapter.getRegisteredFragment(viewPager.getCurrentItem());
+        if(currentFragment != null) {
+            switch (fragmentNo) {
+                case INDEX_FRAGMENT1_NAME:
+                    mFirstUserName = ((FirstUser1NameFragment)currentFragment).getFirstUserName();
+                    break;
+                case INDEX_FRAGMENT2_EMAIL:
+                    mFirstUserEmail = ((FirstUser2EmailFragment)currentFragment).getFirstUserEmail();
+                    break;
+                case INDEX_FRAGMENT3_PHOTO:
+                    mFirstUserPhotoUri = ((FirstUser3PhotoFragment)currentFragment).getFirstUserPhotoUri();
+                    break;
+                case INDEX_FRAGMENT4_COMPLETE:
+                    break;
+            }
+        } else {
+            Log.d(TAG, "get current fragment failed");
+        }
+    }
+
+    public String getmFirstUserName() { return mFirstUserName; }
+    public String getmFirstUserEmail() { return mFirstUserEmail; }
+    public Uri getmFirstUserPhotoUri() { return mFirstUserPhotoUri; }
 
 }
