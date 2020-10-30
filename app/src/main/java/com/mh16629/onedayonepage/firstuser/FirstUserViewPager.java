@@ -8,8 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.core.view.MotionEventCompat;
 import androidx.viewpager.widget.ViewPager;
 
-public class FirstUserViewPager extends ViewPager {
+public class FirstUserViewPager extends ViewPager implements ViewPager.OnPageChangeListener{
     private boolean enabled;
+
+    private FirstUserPagerAdapter mCustomFragmentPagerAdapter;
+
 
     public FirstUserViewPager(@NonNull Context context) {
         super(context);
@@ -46,5 +49,24 @@ public class FirstUserViewPager extends ViewPager {
 
     public void setPagingEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    private void refresh() {
+        mCustomFragmentPagerAdapter.notifyDataSetChanged();
     }
 }

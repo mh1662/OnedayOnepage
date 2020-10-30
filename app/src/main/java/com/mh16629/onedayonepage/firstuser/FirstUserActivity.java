@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.mh16629.onedayonepage.R;
@@ -36,13 +37,14 @@ public class FirstUserActivity extends AppCompatActivity {
 
     LinearLayout bottomButtonLayout1;
     LinearLayout bottomButtonLayout2;
-
     Button bottomButtonNext;
     Button bottomButtonYes;
     Button bottomButtonNo;
+    ImageView imageViewlogoDog;
 
     private String mFirstUserName;
     private String mFirstUserEmail;
+    private String mFirstUserPassword;
     private Uri mFirstUserPhotoUri;
 
     // bottom layout level(viewpager 기반)
@@ -54,9 +56,11 @@ public class FirstUserActivity extends AppCompatActivity {
     public final static int BOTTOM_LAYOUT3_PHOTO_ABLE = 5;
     public final static int BOTTOM_LAYOUT4_COMPLETE = 6;
     public final static int BOTTOM_LAYOUT5_CONGRATE = 7;
+    public final static int BOTTOM_LAYOUT21_PASSWORD_DISABLE = 8;
+    public final static int BOTTOM_LAYOUT21_PASSWORD_ABLE = 9;
 
     //레이아웃 페이지 수
-    public final static int BOTTOM_LAYOUT_COUNT = 5;
+    public final static int BOTTOM_LAYOUT_COUNT = 6;
 
     @Override
     public void onBackPressed() {
@@ -85,6 +89,7 @@ public class FirstUserActivity extends AppCompatActivity {
         bottomButtonNext = (Button) findViewById(R.id.first_user_bottom_button_next);
         bottomButtonYes = (Button) findViewById(R.id.first_user_bottom_button_yes);
         bottomButtonNo = (Button) findViewById(R.id.first_user_bottom_button_no);
+        imageViewlogoDog = (ImageView) findViewById(R.id.first_user_viewpager_logo_dog);
 
         viewPager = (FirstUserViewPager) findViewById(R.id.first_user_viewpager);
         viewPager.setPagingEnabled(false);
@@ -112,6 +117,7 @@ public class FirstUserActivity extends AppCompatActivity {
                 bottomButtonLayout1.setVisibility(View.VISIBLE);
                 bottomButtonLayout2.setVisibility(View.GONE);
 
+                imageViewlogoDog.setVisibility(View.VISIBLE);
                 bottomButtonNext.setTag(INDEX_FRAGMENT1_NAME);
                 bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
                 bottomButtonNext.setBackgroundColor(getResources().getColor(R.color.inactive_shape));
@@ -123,6 +129,7 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT1_NAME_ABLE:
                 bottomButtonLayout1.setVisibility(View.VISIBLE);
                 bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
 
                 bottomButtonNext.setTag(INDEX_FRAGMENT1_NAME);
                 bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
@@ -136,6 +143,7 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT2_EMAIL_DISABLE:
                 bottomButtonLayout1.setVisibility(View.VISIBLE);
                 bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
 
                 bottomButtonNext.setTag(INDEX_FRAGMENT2_EMAIL);
                 bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
@@ -148,6 +156,7 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT2_EMAIL_ABLE:
                 bottomButtonLayout1.setVisibility(View.VISIBLE);
                 bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
 
                 bottomButtonNext.setTag(INDEX_FRAGMENT2_EMAIL);
                 bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
@@ -160,6 +169,7 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT3_PHOTO_SKIP:
                 bottomButtonLayout1.setVisibility(View.VISIBLE);
                 bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
 
                 bottomButtonNext.setTag(INDEX_FRAGMENT3_PHOTO);
                 bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_skip));
@@ -172,6 +182,7 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT3_PHOTO_ABLE:
                 bottomButtonLayout1.setVisibility(View.VISIBLE);
                 bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
 
                 bottomButtonNext.setTag(INDEX_FRAGMENT3_PHOTO);
                 bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
@@ -184,6 +195,7 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT4_COMPLETE:
                 bottomButtonLayout1.setVisibility(View.GONE);
                 bottomButtonLayout2.setVisibility(View.VISIBLE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
 
                 bottomButtonYes.setTag(INDEX_FRAGMENT4_COMPLETE);
                 bottomButtonNo.setTag(INDEX_FRAGMENT4_COMPLETE);
@@ -193,6 +205,33 @@ public class FirstUserActivity extends AppCompatActivity {
             case BOTTOM_LAYOUT5_CONGRATE:
                 bottomButtonLayout1.setVisibility(View.GONE);
                 bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.INVISIBLE);
+
+                break;
+
+            case BOTTOM_LAYOUT21_PASSWORD_DISABLE:
+                bottomButtonLayout1.setVisibility(View.VISIBLE);
+                bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
+
+                bottomButtonNext.setTag(INDEX_FRAGMENT21_PASSWORD);
+                bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
+                bottomButtonNext.setBackgroundColor(getResources().getColor(R.color.inactive_shape));
+                bottomButtonNext.setTextColor(getResources().getColor(R.color.inactive_font));
+                bottomButtonNext.setEnabled(false);
+
+                break;
+
+            case BOTTOM_LAYOUT21_PASSWORD_ABLE:
+                bottomButtonLayout1.setVisibility(View.VISIBLE);
+                bottomButtonLayout2.setVisibility(View.GONE);
+                imageViewlogoDog.setVisibility(View.VISIBLE);
+
+                bottomButtonNext.setTag(INDEX_FRAGMENT21_PASSWORD);
+                bottomButtonNext.setText(getResources().getString(R.string.first_user_bottom_button_next));
+                bottomButtonNext.setBackgroundColor(getResources().getColor(R.color.point));
+                bottomButtonNext.setTextColor(getResources().getColor(R.color.white));
+                bottomButtonNext.setEnabled(true);
 
                 break;
         }
@@ -208,6 +247,9 @@ public class FirstUserActivity extends AppCompatActivity {
                 setbottomLayout(BOTTOM_LAYOUT2_EMAIL_DISABLE);
                 break;
             case INDEX_FRAGMENT2_EMAIL:
+                setbottomLayout(BOTTOM_LAYOUT21_PASSWORD_DISABLE);
+                break;
+            case INDEX_FRAGMENT21_PASSWORD:
                 setbottomLayout(BOTTOM_LAYOUT3_PHOTO_SKIP);
                 break;
             case INDEX_FRAGMENT3_PHOTO:
@@ -229,6 +271,9 @@ public class FirstUserActivity extends AppCompatActivity {
                 setbottomLayout(BOTTOM_LAYOUT3_PHOTO_SKIP);
                 break;
             case INDEX_FRAGMENT3_PHOTO:
+                setbottomLayout(BOTTOM_LAYOUT21_PASSWORD_ABLE);
+                break;
+            case INDEX_FRAGMENT21_PASSWORD:
                 setbottomLayout(BOTTOM_LAYOUT2_EMAIL_ABLE);
                 break;
             case INDEX_FRAGMENT2_EMAIL:
@@ -266,6 +311,7 @@ public class FirstUserActivity extends AppCompatActivity {
                 //익명 유저의 프로필 설정
                 AnonymousAuth mAuth = new AnonymousAuth(mContext);
                 mAuth.updateProfile(mFirstUserName, mFirstUserPhotoUri);
+                mAuth.linkAccount(mFirstUserEmail, mFirstUserPassword);
 
                 //FirstUser5CongrateFragment로 이동
                 setNextFragmentLayout(tag);
@@ -306,10 +352,14 @@ public class FirstUserActivity extends AppCompatActivity {
                 case INDEX_FRAGMENT2_EMAIL:
                     mFirstUserEmail = ((FirstUser2EmailFragment)currentFragment).getFirstUserEmail();
                     break;
+                case INDEX_FRAGMENT21_PASSWORD:
+                    mFirstUserPassword = ((FirstUser21PasswordFragment)currentFragment).getFirstUserPassword();
+                    break;
                 case INDEX_FRAGMENT3_PHOTO:
                     mFirstUserPhotoUri = ((FirstUser3PhotoFragment)currentFragment).getFirstUserPhotoUri();
                     break;
                 case INDEX_FRAGMENT4_COMPLETE:
+//                    ((FirstUser4CompleteFragment)currentFragment).setFragmentSrc();
                     break;
             }
         } else {
@@ -317,8 +367,8 @@ public class FirstUserActivity extends AppCompatActivity {
         }
     }
 
-    public String getmFirstUserName() { return mFirstUserName; }
-    public String getmFirstUserEmail() { return mFirstUserEmail; }
-    public Uri getmFirstUserPhotoUri() { return mFirstUserPhotoUri; }
+    public String getFirstUserName() { return mFirstUserName; }
+    public String getFirstUserEmail() { return mFirstUserEmail; }
+    public Uri getFirstUserPhotoUri() { return mFirstUserPhotoUri; }
 
 }

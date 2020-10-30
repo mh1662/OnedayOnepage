@@ -8,41 +8,43 @@
     android:layout_marginRight="@dimen/fragment_first_user_horizontal_margin"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:textSize="28sp"
-        android:textColor="@color/body_default"
-        android:lineSpacingExtra="10sp"
-        android:gravity="center_horizontal"
-        tools:text="환영합니다!"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/point"
-        android:lineSpacingExtra="10sp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="4dp"
-        tools:text="일일일독과 함께 독서를 시작해보세요."
-        />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="56dp">
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/first_user5_text1_cong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            android:textSize="28sp"
+            android:textColor="@color/body_default"
+            android:lineSpacingExtra="10sp"
+            android:gravity="center_horizontal"
+            android:text="환영합니다!"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first_user5_text1_cong"
+            android:textSize="16sp"
+            android:textColor="@color/point"
+            android:lineSpacingExtra="10sp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text="일일일독과 함께 독서를 시작해보세요."
+            />
 
         <ImageButton
             android:id="@+id/first_user_photo"
             android:layout_width="@dimen/first_user_photo_button_width"
             android:layout_height="@dimen/first_user_photo_button_height"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/account_user_photo"
-            android:layout_centerInParent="true"
             android:scaleType="fitCenter"
             />
 

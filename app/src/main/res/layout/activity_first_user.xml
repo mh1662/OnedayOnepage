@@ -14,6 +14,18 @@
         android:layout_height="56dp"
         android:theme="@style/BookDetailToolbar" />
 
+    <ImageView
+        android:id="@+id/first_user_viewpager_logo_dog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:src="@drawable/logo_dog"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/first_user_dog_logo_margin_right"
+        android:layout_marginBottom="@dimen/first_user_dog_logo_margin_bottom" />
+
     <com.mh16629.onedayonepage.firstuser.FirstUserViewPager
         android:id="@+id/first_user_viewpager"
         android:layout_width="match_parent"
