@@ -14,9 +14,9 @@ import com.mh16629.onedayonepage.R;
 
 public class FirstUser4CompleteFragment extends Fragment {
 
-    private TextView mFirstUserCompleteName;
-    private TextView mFirstUserCompleteEmail;
-    private ImageButton mFirstUserCompletePhoto;
+    TextView mFirstUserCompleteName;
+    TextView mFirstUserCompleteEmail;
+    ImageButton mFirstUserCompletePhoto;
 
     public FirstUser4CompleteFragment() {
     }
@@ -37,17 +37,19 @@ public class FirstUser4CompleteFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_first_user4_complete, container, false);
 
         //화면 초기 설정
-        //TODO: mFirstUserCompletePhoto 설정할 것
         mFirstUserCompleteName = v.findViewById(R.id.first_user_complete_name);
         mFirstUserCompleteEmail = v.findViewById(R.id.first_user_complete_email);
-//        mFirstUserCompletePhoto = v.findViewById(R.id.first_user_complete_photo);
-
-        FirstUserActivity firstUserActivity = (FirstUserActivity)getActivity();
-        assert firstUserActivity != null;
-        mFirstUserCompleteName.setText(firstUserActivity.getmFirstUserName());
-        mFirstUserCompleteEmail.setText(firstUserActivity.getmFirstUserEmail());
-//        mFirstUserCompletePhoto.
+        mFirstUserCompletePhoto = v.findViewById(R.id.first_user_complete_photo);
+        setFragment4Src();
 
         return v;
+    }
+
+    public void setFragment4Src() {
+        FirstUserActivity firstUserActivity = (FirstUserActivity)getActivity();
+        assert firstUserActivity != null;
+        mFirstUserCompleteName.setText(firstUserActivity.getFirstUserName());
+        mFirstUserCompleteEmail.setText(firstUserActivity.getFirstUserEmail());
+        mFirstUserCompletePhoto.setImageURI(firstUserActivity.getFirstUserPhotoUri());
     }
 }

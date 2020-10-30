@@ -93,6 +93,17 @@
     <string name="first_user_layout2_text2">사용자 등록을 위한\n이메일이 필요해요.</string>
     <string name="first_user_layout2_text3">abcd@email.com</string>
 
+    <string name="first_user_layout21_password_hint">비밀번호를 입력해주세요.</string>
+    <string name="first_user_layout21_password_message0">""</string>
+    <string name="first_user_layout21_password_message1">6글자 이상, 영문과 숫자를 포함해야 돼요</string>
+    <string name="first_user_layout21_password_message2">올바른 비밀번호에요.</string>
+
+    <string name="first_user_layout21_passwordcheck_hint">다시 한 번 입력해주세요.</string>
+    <string name="first_user_layout21_passwordcheck_message0">""</string>
+    <string name="first_user_layout21_passwordcheck_message1">비밀번호가 일치하지 않아요.</string>
+    <string name="first_user_layout21_passwordcheck_message2">비밀번호가 일치해요.</string>
+    <string name="first_user_layout21_passwordcheck_message3">비밀번호 먼저 입력해주세요.</string>
+
     <string name="first_user_layout3_text1">서재에 들어가볼까요?</string>
     <string name="first_user_layout3_text2">프로필 이미지를\n등록해보세요.</string>
 

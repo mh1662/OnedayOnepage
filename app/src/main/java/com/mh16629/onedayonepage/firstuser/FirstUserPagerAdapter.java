@@ -19,9 +19,10 @@ public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
     // fragment level
     public final static int INDEX_FRAGMENT1_NAME = 0;
     public final static int INDEX_FRAGMENT2_EMAIL = 1;
-    public final static int INDEX_FRAGMENT3_PHOTO = 2;
-    public final static int INDEX_FRAGMENT4_COMPLETE = 3;
-    public final static int INDEX_FRAGMENT5_CONGRATE = 4;
+    public final static int INDEX_FRAGMENT21_PASSWORD = 2;
+    public final static int INDEX_FRAGMENT3_PHOTO = 3;
+    public final static int INDEX_FRAGMENT4_COMPLETE = 4;
+    public final static int INDEX_FRAGMENT5_CONGRATE = 5;
 
     public FirstUserPagerAdapter(FragmentManager fm, int NumOfTabs){
         super(fm);
@@ -40,6 +41,8 @@ public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
                 return FirstUser1NameFragment.newInstance();
             case INDEX_FRAGMENT2_EMAIL:
                 return FirstUser2EmailFragment.newInstance();
+            case INDEX_FRAGMENT21_PASSWORD:
+                return FirstUser21PasswordFragment.newInstance();
             case INDEX_FRAGMENT3_PHOTO:
                 return FirstUser3PhotoFragment.newInstance();
             case INDEX_FRAGMENT4_COMPLETE:
@@ -67,5 +70,11 @@ public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
 
     public Fragment getRegisteredFragment(int position) {
         return registeredFragments.get(position);
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+//        return super.getItemPosition(object);
+        return POSITION_NONE;
     }
 }
