@@ -129,26 +129,27 @@ public class AnonymousAuth {
 
     /**
      * 프로필 업데이트
+     * @param userName 유저명
+     * @param userPhoto 프로필사진 Uri
      */
-//    public void updateProfile(String userName, Uri ) {
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//
-//        //FIXME: 유저 프로필 업데이트
-//        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-//            .setDisplayName("Jane Q. User")
-//                .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
-//                .build();
-//
-//        user.updateProfile(profileUpdates)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Log.d(TAG, "User profile updated.");
-//                        }
-//                    }
-//                });
-//    }
+    public void updateProfile(String userName, Uri userPhoto) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+            .setDisplayName(userName)
+                .setPhotoUri(userPhoto)
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User profile updated.");
+                        }
+                    }
+                });
+    }
 
 //    private boolean validateLinkForm() {
 //        boolean valid = true;

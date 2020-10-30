@@ -1,7 +1,9 @@
 package com.mh16629.onedayonepage.firstuser;
 
-import android.util.Log;
+import android.util.SparseArray;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -9,6 +11,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
 
     private static String TAG = "FirstUserPagerAdapter";
+
+    SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
 
     int mNumOfTabs;
 
@@ -25,31 +29,43 @@ public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
+    public int getCount() {
+        return mNumOfTabs;
+    }
+
+    @Override
     public Fragment getItem(int position) {
         switch (position) {
             case INDEX_FRAGMENT1_NAME:
-                Log.d(TAG, "ViewPagerAdapter - position[" + position + "]  set FirstUser1NameFragment");
-                return new FirstUser1NameFragment();
+                return FirstUser1NameFragment.newInstance();
             case INDEX_FRAGMENT2_EMAIL:
-                Log.d(TAG, "ViewPagerAdapter - position[" + position + "]  set FirstUser2EmailFragment");
-                return new FirstUser2EmailFragment();
+                return FirstUser2EmailFragment.newInstance();
             case INDEX_FRAGMENT3_PHOTO:
-                Log.d(TAG, "ViewPagerAdapter - position[" + position + "]  set FirstUser3PhotoFragment");
-                return new FirstUser3PhotoFragment();
+                return FirstUser3PhotoFragment.newInstance();
             case INDEX_FRAGMENT4_COMPLETE:
-                Log.d(TAG, "ViewPagerAdapter - position[" + position + "]  set FirstUser4CompleteFragment");
-                return new FirstUser4CompleteFragment();
+                return FirstUser4CompleteFragment.newInstance();
             case INDEX_FRAGMENT5_CONGRATE:
-                Log.d(TAG, "ViewPagerAdapter - position[" + position + "]  set FirstUser5CongrateFragment");
-                return new FirstUser5CongrateFragment();
+                return FirstUser5CongrateFragment.newInstance();
             default:
-                Log.d(TAG, "ViewPagerAdapter - position[" + position + "]  set null");
                 return null;
         }
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return mNumOfTabs;
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        Fragment fragment = (Fragment) super.instantiateItem(container, position);
+        registeredFragments.put(position, fragment);
+        return fragment;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        registeredFragments.remove(position);
+        super.destroyItem(container, position, object);
+    }
+
+    public Fragment getRegisteredFragment(int position) {
+        return registeredFragments.get(position);
     }
 }
