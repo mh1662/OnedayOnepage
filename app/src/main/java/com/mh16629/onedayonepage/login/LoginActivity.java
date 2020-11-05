@@ -79,9 +79,6 @@ public class LoginActivity extends BaseActivity implements
         AnonymousAlertDialog anonymousAlertDialog = new AnonymousAlertDialog(this);
         anonymousAlertDialog.setCancelable(true);
         anonymousAlertDialog.show();
-
-//        Intent intentAnonymousLogin = new Intent(getApplicationContext(), AnonymousAuthActivity.class);
-//        startActivity(intentAnonymousLogin);
     }
 
 }

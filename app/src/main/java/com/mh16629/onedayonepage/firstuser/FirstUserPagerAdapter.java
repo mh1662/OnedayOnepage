@@ -54,6 +54,8 @@ public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+
+
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
@@ -71,6 +73,18 @@ public class FirstUserPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getRegisteredFragment(int position) {
         return registeredFragments.get(position);
     }
+
+//    @Override
+//    public void notifyDataSetChanged() {
+////        super.notifyDataSetChanged();
+//        int key = 0;
+//        for (int i = 0; i < registeredFragments.size(); i++) {
+//            key = registeredFragments.keyAt(i);
+//            Fragment frg = registeredFragments.get(key);
+//            //refresh view
+//        }
+//        super.notifyDataSetChanged();
+//    }
 
     @Override
     public int getItemPosition(@NonNull Object object) {

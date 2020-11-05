@@ -36,4 +36,17 @@
         android:inputType="textEmailAddress"
         android:hint="@string/first_user_layout2_text3"/>
 
+    <TextView
+        android:id="@+id/first_user_email_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="@color/point"
+        android:lineSpacingExtra="12sp"
+        tools:text="올바른 이메일 형식이 아니에요."
+        />
+
 </LinearLayout>

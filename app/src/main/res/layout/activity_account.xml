@@ -33,19 +33,39 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <ImageButton
-            android:id="@+id/account_userPhoto"
-            android:layout_width="@dimen/account_profile_width"
-            android:layout_height="@dimen/account_profile_height"
-            android:layout_gravity="center_horizontal"
-            android:background="@android:color/transparent"
-            app:srcCompat="@drawable/account_user_photo" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" >
+
+            <com.mh16629.onedayonepage.util.RoundImageView
+                android:id="@+id/account_userPhoto"
+                android:layout_width="@dimen/account_profile_width"
+                android:layout_height="@dimen/account_profile_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/account_user_photo" />
+
+            <ImageButton
+                android:id="@+id/account_icon_userPhotoUpdate"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/icon_camera"
+                android:scaleType="fitCenter"
+                android:layout_alignRight="@id/account_userPhoto"
+                android:layout_alignEnd="@id/account_userPhoto" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
             android:layout_marginTop="@dimen/text_vertical_spacing" >
 
             <TextView
@@ -58,9 +78,13 @@
                 android:text="사용자 이름" />
 
             <ImageButton
-                android:id="@+id/account_button_nameUpdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:id="@+id/account_icon_nameUpdate"
+                android:src="@drawable/icon_pencil"
+                android:background="@android:color/transparent"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                />
 
         </LinearLayout>
 

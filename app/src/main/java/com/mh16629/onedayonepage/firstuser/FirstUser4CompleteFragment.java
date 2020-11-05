@@ -11,12 +11,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.util.RoundImageView;
 
 public class FirstUser4CompleteFragment extends Fragment {
 
     TextView mFirstUserCompleteName;
     TextView mFirstUserCompleteEmail;
-    ImageButton mFirstUserCompletePhoto;
+    RoundImageView mFirstUserCompletePhoto;
 
     public FirstUser4CompleteFragment() {
     }
@@ -43,6 +44,12 @@ public class FirstUser4CompleteFragment extends Fragment {
         setFragment4Src();
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setFragment4Src();
     }
 
     public void setFragment4Src() {
