@@ -37,24 +37,25 @@
             android:text="일일일독과 함께 독서를 시작해보세요."
             />
 
-        <ImageButton
-            android:id="@+id/first_user_photo"
+        <com.mh16629.onedayonepage.util.RoundImageView
+            android:id="@+id/first_user_congrate_photo"
             android:layout_width="@dimen/first_user_photo_button_width"
             android:layout_height="@dimen/first_user_photo_button_height"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/account_user_photo"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             />
 
         <TextView
+            android:id="@+id/first_user_congrate_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="@color/body_default"
             android:lineSpacingExtra="6sp"
-            android:layout_below="@id/first_user_photo"
+            android:layout_below="@id/first_user_congrate_photo"
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/first_user_name_title_margin_top"

@@ -1,38 +1,29 @@
 package com.mh16629.onedayonepage.account;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.mh16629.onedayonepage.R;
-import com.mh16629.onedayonepage.booksearch.BookSearchActivity;
 import com.mh16629.onedayonepage.databinding.ActivityAccountBinding;
-import com.mh16629.onedayonepage.login.AnonymousAlertDialog;
-import com.mh16629.onedayonepage.main.MainActivity;
-
-import org.w3c.dom.Text;
-
-import java.net.URI;
+import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class AccountActivity extends AppCompatActivity implements
         View.OnClickListener  {
+
+    public static Context mContext;
+    private FirebaseOdOpAuth mAuth;
 
     private static final String TAG = "AccountActivity";
 
@@ -42,6 +33,7 @@ public class AccountActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        mContext = this;
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_account);
         mBinding.setAccount(this);
 
@@ -54,27 +46,21 @@ public class AccountActivity extends AppCompatActivity implements
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         // 유저 정보 설정
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
+        mAuth = new FirebaseOdOpAuth(this);
+        if (!mAuth.isCurrentUserNull()) {
             Log.d(TAG, "set user info");
-            mBinding.accountUserName.setText(user.getDisplayName());
-            mBinding.accountUserEmail.setText(user.getEmail());
-            mBinding.accountUserUid.setText(user.getUid());
-            Uri userPhotoUrl = user.getPhotoUrl();
-            if (userPhotoUrl != null) {
-                mBinding.accountUserPhoto.setImageURI(user.getPhotoUrl());
-            }
+            mBinding.accountUserName.setText(mAuth.getUserName());
+            mBinding.accountUserEmail.setText(mAuth.getUserEmail());
+            mBinding.accountUserUid.setText(mAuth.getUserUid());
+            mBinding.accountUserPhoto.setImageURI(mAuth.getUserPhotoUri());
         }
 
-//        //사용자 삭제
-//        Button buttonUserDelete = (Button) findViewById(R.id.account_button_userDelete);
-//        buttonUserDelete.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                deleteUser();
-//            }
-//        });
+        //프로필 변경 리스너
+        mBinding.accountUserPhoto.setOnClickListener(this);
+        mBinding.accountIconUserPhotoUpdate.setOnClickListener(this);
+        mBinding.accountIconNameUpdate.setOnClickListener(this);
 
+        //account버튼 클릭 리스너
         mBinding.accountButtonLinkWithSignIn.setOnClickListener(this);
         mBinding.accountButtonPasswordUpdate.setOnClickListener(this);
         mBinding.accountButtonSignOut.setOnClickListener(this);
@@ -85,6 +71,16 @@ public class AccountActivity extends AppCompatActivity implements
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.account_userPhoto:
+            case R.id.account_icon_userPhotoUpdate:
+                CropImage.activity()
+                        .setGuidelines(CropImageView.Guidelines.ON)
+                        .start(this);
+                break;
+            case R.id.account_icon_nameUpdate:
+                //TODO: 유저 이름 변경 다이얼로그 작성
+
+                break;
             case R.id.account_button_linkWithSignIn:
 
                 break;
@@ -92,49 +88,38 @@ public class AccountActivity extends AppCompatActivity implements
 
                 break;
             case R.id.account_button_signOut:
-                signOut();
+                mAuth.signOut();
                 break;
             case R.id.account_button_cleanup:
-
+                //FIXME: AccountCleanUpActivity로 전이
                 break;
             case R.id.account_button_userDelete:
-                deleteUser();
+                //FIXME: AccountDeleteActivity로 전이
+//                mAuth.deleteUser();
                 break;
         }
     }
 
-    /**
-     * 로그아웃
-     */
-    public void signOut() {
-        SignOutDialog signOutDialog = new SignOutDialog(this);
-        signOutDialog.setCancelable(true);
-        signOutDialog.show();
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // CropImage result(프로필 사진 변경)
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK && data !=null) {
+                //프로필 업데이트
+                mAuth.updateProfile(result.getUri());
+
+                //선택된 사진 표시
+                mBinding.accountUserPhoto.setImageURI(result.getUri());
+
+                //TOAST MESSAGE
+                Toast toastMessage_share = Toast.makeText(this, "프로필 사진이 변경되었어요.", Toast.LENGTH_SHORT);
+                toastMessage_share.show();
+
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
+        }
     }
-
-
-    /**
-     * 회원 탈퇴
-     */
-    public void deleteUser() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        user.delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "User account deleted.");
-                        }
-                    }
-                });
-        // TODO: 유저 삭제 전 기존 책, 노트데이터 삭제(논리)해야? 그냥 냅둠??(유지보수..)
-
-        // FIXME: 유저 삭제 후 첫 화면으로 전이 (로그인 화면으로 전이되도록)
-//        Intent intentMain = new Intent(getApplicationContext(), MainActivity.class);
-//        startActivity(intentMain);
-
-        ((AccountActivity) this).finish();
-    }
-
 }

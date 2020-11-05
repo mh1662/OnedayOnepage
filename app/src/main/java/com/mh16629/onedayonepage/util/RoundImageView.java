@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 public class RoundImageView extends AppCompatImageView {
 
-    public static float radius = 36.0f;
+    public static float radius = 500f;
 
     public RoundImageView(Context context) {
         super(context);

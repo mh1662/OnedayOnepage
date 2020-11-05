@@ -43,6 +43,7 @@
             android:src="@drawable/account_user_photo"
             android:layout_width="@dimen/first_user_photo_button_width"
             android:layout_height="@dimen/first_user_photo_button_height"
+            android:scaleType="centerCrop"
             android:background="@android:color/transparent"
             android:layout_centerInParent="true" />
 
@@ -52,6 +53,7 @@
             android:layout_height="@dimen/first_user_photo_icon_height"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/icon_camera"
+            android:scaleType="fitCenter"
             android:layout_alignRight="@id/first_user_photo"
             android:layout_alignEnd="@id/first_user_photo" />
 

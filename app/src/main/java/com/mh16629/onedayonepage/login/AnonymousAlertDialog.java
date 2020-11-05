@@ -71,11 +71,11 @@ public class AnonymousAlertDialog extends Dialog implements
     private void loginYes() {
         Log.d(TAG, "loginYes");
 
-        // 익명 유저 생성
-        AnonymousAuth mAuth = new AnonymousAuth(mContext);
-        mAuth.signInAnonymously();
-
-        //FIXME: 익명로그인 후 유저정보 설정 화면으로 ㄱㄱ
+//        // 익명 유저 생성
+//        AnonymousAuth mAuth = new AnonymousAuth(mContext);
+//        mAuth.signInAnonymously();
+//
+//        //FIXME: 익명로그인 후 유저정보 설정 화면으로 ㄱㄱ
         Intent intentFirstLogin = new Intent(mContext, FirstUserActivity.class);
         mContext.startActivity(intentFirstLogin);
 

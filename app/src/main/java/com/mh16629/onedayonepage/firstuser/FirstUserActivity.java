@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.mh16629.onedayonepage.R;
-import com.mh16629.onedayonepage.login.AnonymousAuth;
+import com.mh16629.onedayonepage.main.MainActivity;
+import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
 
 import static com.mh16629.onedayonepage.firstuser.FirstUserPagerAdapter.*;
 
@@ -64,10 +66,37 @@ public class FirstUserActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
-        //TODO: addToBackStack사용..?
+        if (viewPager.getCurrentItem() == INDEX_FRAGMENT1_NAME) {
+            super.onBackPressed();
+        } else if (viewPager.getCurrentItem() == INDEX_FRAGMENT5_CONGRATE) {
+            ((FirstUserActivity) mContext).finish();
+            Intent mainPageIntent = new Intent(mContext, MainActivity.class);
+            mContext.startActivity(mainPageIntent);
+        } else {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() -1);
+        }
     }
 
+    /**
+     * 툴바 뒤로가기 버튼 이벤트
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                if (viewPager.getCurrentItem() == 0) {
+                    super.onBackPressed();
+                } else {
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+                }
+                return super.onOptionsItemSelected(item);
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -289,7 +318,7 @@ public class FirstUserActivity extends AppCompatActivity {
     View.OnClickListener moveNextPageListener = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-            int tag = (int) view.getTag();
+            int tag = viewPager.getCurrentItem();
             if (tag < BOTTOM_LAYOUT_COUNT) {
                 //viewPager의 메모리 누수정책에 의해 각 fragment가 삭제되기 전 화면 이동시마다 로컬변수로 저장
                 getFragmentData(tag);
@@ -306,12 +335,15 @@ public class FirstUserActivity extends AppCompatActivity {
     View.OnClickListener moveCompletePageListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int tag = (int) view.getTag();
+            int tag = viewPager.getCurrentItem();
             if (tag == INDEX_FRAGMENT4_COMPLETE) {
-                //익명 유저의 프로필 설정
-                AnonymousAuth mAuth = new AnonymousAuth(mContext);
+                //익명 유저 생성, 프로필 설정
+                Log.d(TAG, "moveCompletePageListener auth start");
+                FirebaseOdOpAuth mAuth = new FirebaseOdOpAuth(mContext);
+                mAuth.signInAnonymously();
                 mAuth.updateProfile(mFirstUserName, mFirstUserPhotoUri);
                 mAuth.linkAccount(mFirstUserEmail, mFirstUserPassword);
+                Log.d(TAG, "moveCompletePageListener auth end");
 
                 //FirstUser5CongrateFragment로 이동
                 setNextFragmentLayout(tag);
@@ -328,11 +360,8 @@ public class FirstUserActivity extends AppCompatActivity {
     View.OnClickListener moveBackPageListener = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
-            int tag = (int) view.getTag();
-            if (tag == INDEX_FRAGMENT1_NAME) {
-                //TODO: INDEX_FRAGMENT1_NAME : 익명 유저를 삭제하고 LoginActivity로 화면 전환
-
-            } else if (tag > INDEX_FRAGMENT1_NAME) {
+            int tag = viewPager.getCurrentItem();
+            if (tag > INDEX_FRAGMENT1_NAME) {
                 //INDEX_FRAGMENT1_NAME 이외 : 전 프레그먼트로 전환
                 setBackFragmentLayout(tag);
                 viewPager.setCurrentItem(tag - 1);

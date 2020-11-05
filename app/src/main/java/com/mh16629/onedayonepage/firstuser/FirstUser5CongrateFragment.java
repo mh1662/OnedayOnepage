@@ -11,11 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.util.RoundImageView;
 
 public class FirstUser5CongrateFragment extends Fragment {
 
     TextView mFirstUserCompleteName;
-    ImageView mFirstUserCompletePhoto;
+    RoundImageView mFirstUserCompletePhoto;
 
     public FirstUser5CongrateFragment() {}
 
@@ -32,14 +33,20 @@ public class FirstUser5CongrateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_first_user4_complete, container, false);
+        View v = inflater.inflate(R.layout.fragment_first_user5_congrate, container, false);
 
         //화면 초기 설정
-        mFirstUserCompleteName = v.findViewById(R.id.first_user_complete_name);
-        mFirstUserCompletePhoto = v.findViewById(R.id.first_user_complete_photo);
+        mFirstUserCompletePhoto = v.findViewById(R.id.first_user_congrate_photo);
+        mFirstUserCompleteName = v.findViewById(R.id.first_user_congrate_name);
         setFragment5Src();
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setFragment5Src();
     }
 
     public void setFragment5Src() {

@@ -77,6 +77,7 @@ public class FirstUser21PasswordFragment extends Fragment {
         return v;
     }
 
+
     /**
      * 화면 초기화
      */
@@ -204,7 +205,7 @@ public class FirstUser21PasswordFragment extends Fragment {
                 //패스워드 미입력
                 setPasswordStatus(passwordStatus2Currect);
                 setPasswordCheckStatus(passwordCheckStatus0Empty);
-                editTextUserPasswordCheck.setText("");
+//                editTextUserPasswordCheck.setText("");
                 ((FirstUserActivity)FirstUserActivity.mContext).setbottomLayout(BOTTOM_LAYOUT21_PASSWORD_DISABLE);
             } else {
                 if (isPassValid(password)) {
