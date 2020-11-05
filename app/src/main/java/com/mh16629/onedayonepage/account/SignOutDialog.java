@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.mh16629.onedayonepage.R;
-import com.mh16629.onedayonepage.databinding.DialogSignoutBinding;
+import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
 
 public class SignOutDialog extends Dialog implements
         View.OnClickListener{
@@ -44,7 +42,8 @@ public class SignOutDialog extends Dialog implements
                 dismiss();
                 break;
             case R.id.account_signOut_yes:
-                FirebaseAuth.getInstance().signOut();
+                FirebaseOdOpAuth mAuth = new FirebaseOdOpAuth(mContext);
+                mAuth.signOut();
                 ((AccountActivity) mContext).finish();
                 break;
         }

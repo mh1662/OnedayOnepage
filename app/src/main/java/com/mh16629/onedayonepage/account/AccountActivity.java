@@ -72,11 +72,12 @@ public class AccountActivity extends AppCompatActivity implements
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.account_userPhoto:
-            case R.id.account_icon_userPhotoUpdate:
+            case R.id.account_icon_userPhotoUpdate: {
                 CropImage.activity()
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .start(this);
                 break;
+            }
             case R.id.account_icon_nameUpdate:
                 //TODO: 유저 이름 변경 다이얼로그 작성
 
@@ -87,15 +88,17 @@ public class AccountActivity extends AppCompatActivity implements
             case R.id.account_button_passwordUpdate:
 
                 break;
-            case R.id.account_button_signOut:
-                mAuth.signOut();
+            case R.id.account_button_signOut: {
+                SignOutDialog signOutDialog = new SignOutDialog(this);
+                signOutDialog.setCancelable(true);
+                signOutDialog.show();
                 break;
+            }
             case R.id.account_button_cleanup:
                 //FIXME: AccountCleanUpActivity로 전이
                 break;
             case R.id.account_button_userDelete:
                 //FIXME: AccountDeleteActivity로 전이
-//                mAuth.deleteUser();
                 break;
         }
     }
