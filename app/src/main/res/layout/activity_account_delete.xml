@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".account.AccountDeleteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/account_delete_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:theme="@style/BookDetailToolbar" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textColor="@color/body_default"
+            android:lineSpacingExtra="8sp"
+            android:text="회원탈퇴" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/fragment_first_user_horizontal_margin"
+        android:paddingRight="@dimen/fragment_first_user_horizontal_margin"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/icon_exit"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="120dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원탈퇴 시 정보를 복구할 수 없어요."
+            android:textColor="@color/point"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정말로 회원탈퇴하시겠어요?"
+            android:textColor="@color/body_default"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8sp"/>
+
+        <EditText
+            android:id="@+id/account_delete_input_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="abcd@email.com"
+            android:layout_marginTop="88dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="탈퇴할 계정의 이메일을 입력해주세요."
+            android:textColor="@color/point"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:lineSpacingExtra="8sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/account_delete_bottom_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/account_delete_bottom_button_delete"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/inactive_shape"
+            android:text="회원탈퇴"
+            android:textSize="18sp"
+            android:textColor="@color/inactive_font"
+            android:clickable="false"
+            android:gravity="center"
+            tools:ignore="ButtonStyle" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

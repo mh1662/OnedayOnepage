@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".account.AccountCleanUpActivity"></activity>
+        <activity android:name=".account.AccountDeleteActivity"></activity>
+        <activity android:name=".account.AccountCleanUpActivity" />
         <activity
             android:name=".firstuser.FirstUserActivity"
             android:theme="@style/AppTheme.NoActionBar" />
