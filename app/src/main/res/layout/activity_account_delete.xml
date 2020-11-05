@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/account_delete_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/toolbar_height"
         android:theme="@style/BookDetailToolbar" >
 
         <TextView
@@ -17,10 +17,9 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textStyle="normal"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal_size"
             android:textColor="@color/body_default"
-            android:lineSpacingExtra="8sp"
-            android:text="회원탈퇴" />
+            android:text="@string/account_delete_toolbar_title" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -32,8 +31,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/account_delete_icon_width"
+            android:layout_height="@dimen/account_delete_icon_height"
             android:src="@drawable/icon_exit"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="120dp" />
@@ -41,20 +40,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="회원탈퇴 시 정보를 복구할 수 없어요."
+            android:text="@string/account_delete_text1"
             android:textColor="@color/point"
             android:textStyle="normal"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal_size"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="정말로 회원탈퇴하시겠어요?"
+            android:text="@string/account_delete_text2"
             android:textColor="@color/body_default"
             android:textStyle="normal"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal_size"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8sp"/>
 
@@ -62,17 +61,17 @@
             android:id="@+id/account_delete_input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="abcd@email.com"
+            android:hint="@string/account_delete_input_email_hint"
             android:layout_marginTop="88dp"/>
 
         <TextView
+            android:id="@+id/account_delete_input_email_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="탈퇴할 계정의 이메일을 입력해주세요."
+            android:text="@string/account_delete_input_email_message"
             android:textColor="@color/point"
             android:textStyle="normal"
-            android:textSize="12sp"
-            android:lineSpacingExtra="8sp"/>
+            android:textSize="@dimen/text_message_size"/>
 
     </LinearLayout>
 
@@ -87,10 +86,10 @@
         <Button
             android:id="@+id/account_delete_bottom_button_delete"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="@dimen/bottom_button_height"
             android:background="@color/inactive_shape"
-            android:text="회원탈퇴"
-            android:textSize="18sp"
+            android:text="@string/account_delete_bottom_button_text"
+            android:textSize="@dimen/bottom_button_text_size"
             android:textColor="@color/inactive_font"
             android:clickable="false"
             android:gravity="center"
