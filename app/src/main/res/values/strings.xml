@@ -136,7 +136,37 @@
     <string name="account_delete_input_email_hint">abcd@email.com</string>
     <string name="account_delete_input_email_message">탈퇴할 계정의 이메일을 입력해주세요.</string>
     <string name="account_delete_bottom_button_text">회원탈퇴</string>
+
+    <string name="account_delete_complete_text1">안녕히가세요😢</string>
+    <string name="account_delete_complete_text2">떠나신다니 아쉽습니다.</string>
+    <string name="account_delete_complete_button_text">메인으로 이동하기</string>
     <!-- ACCOUNT DELETE end -->
+
+    <!-- ACCOUNT CLEANUP start -->
+    <string name="account_cleanup_toolbar_text">정보 초기화</string>
+    <string name="account_cleanup_text1">정보 초기화 시 기존 정보를 복구할 수 없어요.</string>
+    <string name="account_cleanup_text2">정말로 정보를 초기화 하시겠어요?</string>
+    <string name="account_cleanup_input_hint">abcd@email.com</string>
+    <string name="account_cleanup_input_message">정보를 초기화할 계정의 이메일을 입력해주세요.</string>
+    <string name="account_cleanup_bottom_button_text">정보 초기화</string>
+
+    <string name="account_cleanup_complete_text1">정보가 초기화됐어요😮</string>
+    <string name="account_cleanup_complete_text2">때로는 과감한 새시작이 필요한 법이죠.</string>
+    <string name="account_cleanup_complete_button_text">메인으로 이동하기</string>
+    <!-- ACCOUNT CLEANUP end -->
+
+    <!-- ACCOUNT PASSWORD CHANGE start -->
+    <string name="account_password_change_toolbar_text">비밀번호 변경</string>
+    <string name="account_password_change_old_password_text">기존 비밀번호</string>
+    <string name="account_password_change_old_password_input_hint">기존 비밀번호를 입력해주세요.</string>
+    <string name="account_password_change_old_password_input_message">비밀번호를 입력해주세요.</string>
+    <string name="account_password_change_new_password_text">변경할 비밀번호</string>
+    <string name="account_password_change_new_password_input_hint">6자리 이상으로 입력해주세요.</string>
+    <string name="account_password_change_new_password_input_message">비밀번호를 입력해주세요.</string>
+    <string name="account_password_change_re_password_text">비밀번호 확인</string>
+    <string name="account_password_change_re_password_input_hint">다시 한 번 입력해 주세요.</string>
+    <string name="account_password_change_re_password_input_message">비밀번호를 입력해주세요.</string>
+    <!-- ACCOUNT PASSWORD CHANGE end -->
 
     <!-- ACCOUNT USERNAME UPDATE start DIALOG -->
     <string name="account_username_update_text1">변경할 이름을 입력해주세요.</string>

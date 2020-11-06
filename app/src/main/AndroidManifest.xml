@@ -12,10 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".account.AccountDeleteActivity"
+        <activity
+            android:name=".account.AccountPasswordChangeActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".account.AccountCleanUpActivity"
+        <activity
+            android:name=".account.AccountCleanupCompleteActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".account.AccountDeleteCompleteActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".account.AccountDeleteActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".account.AccountCleanUpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".firstuser.FirstUserActivity"
             android:theme="@style/AppTheme.NoActionBar" />
