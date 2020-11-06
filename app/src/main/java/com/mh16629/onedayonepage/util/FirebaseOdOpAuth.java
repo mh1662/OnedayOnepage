@@ -112,7 +112,8 @@ public class FirebaseOdOpAuth {
      * @param userPhoto 프로필사진 Uri
      */
     public void updateProfile(String userName, Uri userPhoto) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = mAuth.getCurrentUser();
 
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
             .setDisplayName(userName)
@@ -134,7 +135,8 @@ public class FirebaseOdOpAuth {
      * @param userName 유저명
      */
     public void updateProfile(String userName) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = mAuth.getCurrentUser();
 
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                 .setDisplayName(userName)
@@ -156,7 +158,8 @@ public class FirebaseOdOpAuth {
      * @param userPhoto 프로필사진 Uri
      */
     public void updateProfile(Uri userPhoto) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = mAuth.getCurrentUser();
 
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                 .setPhotoUri(userPhoto)
@@ -177,7 +180,8 @@ public class FirebaseOdOpAuth {
      * 사용자 계정 삭제
      */
     public void deleteUser() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = mAuth.getCurrentUser();
 
         user.delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
