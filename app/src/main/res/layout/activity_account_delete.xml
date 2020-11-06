@@ -1,101 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".account.AccountDeleteActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/account_delete_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height"
-        android:theme="@style/BookDetailToolbar" >
+    <data>
+        <variable
+            name="accountDelete"
+            type="com.mh16629.onedayonepage.account.AccountDeleteActivity"/>
+    </data>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textStyle="normal"
-            android:textSize="@dimen/text_normal_size"
-            android:textColor="@color/body_default"
-            android:text="@string/account_delete_toolbar_title" />
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/fragment_first_user_horizontal_margin"
-        android:paddingRight="@dimen/fragment_first_user_horizontal_margin"
-        android:orientation="vertical">
+        tools:context=".account.AccountDeleteActivity">
 
-        <ImageView
-            android:layout_width="@dimen/account_delete_icon_width"
-            android:layout_height="@dimen/account_delete_icon_height"
-            android:src="@drawable/icon_exit"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="120dp" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/account_delete_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:theme="@style/BookDetailToolbar" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/account_delete_text1"
-            android:textColor="@color/point"
-            android:textStyle="normal"
-            android:textSize="@dimen/text_normal_size"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textStyle="normal"
+                android:textSize="@dimen/text_normal_size"
+                android:textColor="@color/body_default"
+                android:text="@string/account_delete_toolbar_title" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/account_delete_text2"
-            android:textColor="@color/body_default"
-            android:textStyle="normal"
-            android:textSize="@dimen/text_normal_size"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8sp"/>
+        </androidx.appcompat.widget.Toolbar>
 
-        <EditText
-            android:id="@+id/account_delete_input_email"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/fragment_first_user_horizontal_margin"
+            android:paddingRight="@dimen/fragment_first_user_horizontal_margin"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/account_delete_icon_width"
+                android:layout_height="@dimen/account_delete_icon_height"
+                android:src="@drawable/icon_exit"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="120dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_delete_text1"
+                android:textColor="@color/point"
+                android:textStyle="normal"
+                android:textSize="@dimen/text_normal_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_delete_text2"
+                android:textColor="@color/body_default"
+                android:textStyle="normal"
+                android:textSize="@dimen/text_normal_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8sp"/>
+
+            <EditText
+                android:id="@+id/account_delete_input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/account_delete_input_email_hint"
+                android:layout_marginTop="88dp"/>
+
+            <TextView
+                android:id="@+id/account_delete_input_email_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/account_delete_input_email_message"
+                android:textColor="@color/point"
+                android:textStyle="normal"
+                android:textSize="@dimen/text_message_size"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/account_delete_bottom_button_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/account_delete_input_email_hint"
-            android:layout_marginTop="88dp"/>
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible">
 
-        <TextView
-            android:id="@+id/account_delete_input_email_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/account_delete_input_email_message"
-            android:textColor="@color/point"
-            android:textStyle="normal"
-            android:textSize="@dimen/text_message_size"/>
+            <Button
+                android:id="@+id/account_delete_bottom_button_delete"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottom_button_height"
+                android:background="@color/inactive_shape"
+                android:text="@string/account_delete_bottom_button_text"
+                android:textSize="@dimen/bottom_button_text_size"
+                android:textColor="@color/inactive_font"
+                android:clickable="false"
+                android:gravity="center"
+                tools:ignore="ButtonStyle" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/account_delete_bottom_button_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="visible">
-
-        <Button
-            android:id="@+id/account_delete_bottom_button_delete"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/bottom_button_height"
-            android:background="@color/inactive_shape"
-            android:text="@string/account_delete_bottom_button_text"
-            android:textSize="@dimen/bottom_button_text_size"
-            android:textColor="@color/inactive_font"
-            android:clickable="false"
-            android:gravity="center"
-            tools:ignore="ButtonStyle" />
-
-
-    </LinearLayout>
-
-</RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

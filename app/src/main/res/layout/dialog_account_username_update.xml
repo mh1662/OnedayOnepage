@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dialog_username_update_width"
-    android:layout_height="@dimen/dialog_username_update_height">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="accountUsernameUpdate"
+            type="com.mh16629.onedayonepage.account.AccountUsernameUpdateDialog"/>
+    </data>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/account_username_update_text1"
-        android:textColor="@color/body_default"
-        android:textStyle="normal"
-        android:textSize="@dimen/dialog_text_size"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"/>
+    <RelativeLayout
+        android:layout_width="@dimen/dialog_username_update_width"
+        android:layout_height="@dimen/dialog_username_update_height">
 
-    <EditText
-        android:id="@+id/account_username_update_input"
-        android:textSize="@dimen/dialog_edit_text_hint_size"
-        android:hint="@string/account_username_update_input_hint"
-        android:layout_width="@dimen/dialog_edit_text_width"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:layout_marginTop="85dp"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_username_update_text1"
+            android:textColor="@color/body_default"
+            android:textStyle="normal"
+            android:textSize="@dimen/dialog_text_size"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"/>
+
+        <EditText
+            android:id="@+id/account_username_update_input"
+            android:textSize="@dimen/dialog_edit_text_hint_size"
+            android:hint="@string/account_username_update_input_hint"
+            android:layout_width="@dimen/dialog_edit_text_width"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_marginTop="85dp"
+            android:layout_centerHorizontal="true"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,4 +58,5 @@
 
         </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

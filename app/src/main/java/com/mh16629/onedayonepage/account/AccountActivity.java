@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.ActivityAccountBinding;
+import com.mh16629.onedayonepage.login.GoogleSignInActivity;
 import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -60,8 +61,8 @@ public class AccountActivity extends AppCompatActivity implements
         mBinding.accountIconUserPhotoUpdate.setOnClickListener(this);
         mBinding.accountIconNameUpdate.setOnClickListener(this);
 
-        //account버튼 클릭 리스너
-        mBinding.accountButtonLinkWithSignIn.setOnClickListener(this);
+        //AccountActivity 회원관리 버튼 클릭 리스너
+//        mBinding.accountButtonLinkWithSignIn.setOnClickListener(this);
         mBinding.accountButtonPasswordUpdate.setOnClickListener(this);
         mBinding.accountButtonSignOut.setOnClickListener(this);
         mBinding.accountButtonCleanup.setOnClickListener(this);
@@ -79,12 +80,15 @@ public class AccountActivity extends AppCompatActivity implements
                 break;
             }
             case R.id.account_icon_nameUpdate:
-                //TODO: 유저 이름 변경 다이얼로그 작성
-
+                AccountUsernameUpdateDialog usernameUpdateDialog = new AccountUsernameUpdateDialog(mContext);
+                usernameUpdateDialog.setCancelable(true);
+                usernameUpdateDialog.show();
                 break;
+                /*계정 연동 버튼 삭제
             case R.id.account_button_linkWithSignIn:
 
                 break;
+                 */
             case R.id.account_button_passwordUpdate:
 
                 break;
@@ -95,10 +99,12 @@ public class AccountActivity extends AppCompatActivity implements
                 break;
             }
             case R.id.account_button_cleanup:
-                //FIXME: AccountCleanUpActivity로 전이
+                Intent intentCleanup = new Intent(getApplicationContext(), AccountCleanUpActivity.class);
+                startActivity(intentCleanup);
                 break;
             case R.id.account_button_userDelete:
-                //FIXME: AccountDeleteActivity로 전이
+                Intent intentDelete = new Intent(getApplicationContext(), AccountDeleteActivity.class);
+                startActivity(intentDelete);
                 break;
         }
     }

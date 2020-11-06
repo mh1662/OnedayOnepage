@@ -74,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/body_default"
-                android:lineSpacingExtra="8sp"
                 android:text="사용자 이름" />
 
             <ImageButton
@@ -92,6 +91,9 @@
             android:id="@+id/account_userEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:textColor="@color/body_default"
             android:text="유저 이메일" />
 
         <TextView
@@ -100,11 +102,11 @@
             android:layout_height="wrap_content"
             android:text="Uid" />
 
-        <Button
+        <!--Button
             android:id="@+id/account_button_linkWithSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/account_linkWithSignIn" />
+            android:text="@string/account_linkWithSignIn" /-->
 
         <!--Button
             android:id="@+id/account_button_profileUpdate"
