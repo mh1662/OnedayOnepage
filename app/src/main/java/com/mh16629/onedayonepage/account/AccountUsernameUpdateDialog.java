@@ -56,10 +56,15 @@ public class AccountUsernameUpdateDialog extends Dialog implements
                 dismiss();
                 break;
             case R.id.account_username_update_yes:{
-                mAuth.updateProfile(mBinding.accountUsernameUpdateInput.getText().toString());
-                dismiss();
+                String updateName = mBinding.accountUsernameUpdateInput.getText().toString();
+                mAuth.updateProfile(updateName);
+
+                ((AccountActivity)mContext).updateUserName(updateName);
+
                 Toast toastMessage_share = Toast.makeText(mContext, "사용자 이름이 변경되었어요.", Toast.LENGTH_SHORT);
                 toastMessage_share.show();
+
+                dismiss();
                 break;
             }
         }

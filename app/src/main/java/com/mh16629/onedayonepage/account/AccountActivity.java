@@ -79,11 +79,12 @@ public class AccountActivity extends AppCompatActivity implements
                         .start(this);
                 break;
             }
-            case R.id.account_icon_nameUpdate:
+            case R.id.account_icon_nameUpdate: {
                 AccountUsernameUpdateDialog usernameUpdateDialog = new AccountUsernameUpdateDialog(mContext);
                 usernameUpdateDialog.setCancelable(true);
                 usernameUpdateDialog.show();
                 break;
+            }
                 /*계정 연동 버튼 삭제
             case R.id.account_button_linkWithSignIn:
 
@@ -130,5 +131,9 @@ public class AccountActivity extends AppCompatActivity implements
                 Exception error = result.getError();
             }
         }
+    }
+
+    public void updateUserName(String name) {
+        mBinding.accountUserName.setText(name);
     }
 }
