@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/alert_dialog_width"
-    android:layout_height="@dimen/alert_dialog_height">
+    android:layout_width="@dimen/dialog_signout_width"
+    android:layout_height="@dimen/dialog_signout_height">
 
     <ImageView
         android:layout_width="@dimen/alert_icon_width"
