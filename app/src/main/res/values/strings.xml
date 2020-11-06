@@ -59,8 +59,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- LOGIN start -->
-    <string name="login_button_text_google">Google 계정으로 로그인</string>
-    <string name="login_button_text_anonymous">게스트 로그인</string>
+    <string name="login_button_text_login">기존 회원 로그인</string>
+    <string name="login_button_text_google">구글아이디로 시작하기</string>
+    <string name="login_button_text_anonymous">이메일로 시작하기</string>
     <string name="login_button_text_sign_out">로그아웃</string>
 
     <string name="prompt_email">Email</string>

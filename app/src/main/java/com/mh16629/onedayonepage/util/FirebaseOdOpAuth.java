@@ -86,6 +86,27 @@ public class FirebaseOdOpAuth {
     }
 
     /**
+     * 기존 사용자 로그인
+     * @param email
+     * @param password
+     */
+    public void signIn(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener((Activity) mContext, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+//                            currentUser = mAuth.getCurrentUser();
+                        } else {
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                        }
+                    }
+                });
+    }
+
+    /**
      * 사용자 계정 연결
      */
     public void linkAccount(String email, String password) {
