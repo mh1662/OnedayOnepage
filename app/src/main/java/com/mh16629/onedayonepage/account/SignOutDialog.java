@@ -44,6 +44,7 @@ public class SignOutDialog extends Dialog implements
             case R.id.account_signOut_yes:
                 FirebaseOdOpAuth mAuth = new FirebaseOdOpAuth(mContext);
                 mAuth.signOut();
+                //로그아웃 후AccountActivity를 닫아 MainActivity로 전이
                 ((AccountActivity) mContext).finish();
                 break;
         }

@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dialog_emailpass_alert_width"
-    android:layout_height="@dimen/dialog_emailpass_alert_height">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="accountEmailpassAlert"
+            type="com.mh16629.onedayonepage.account.AccountEmailpassAlertDialog"/>
+    </data>
 
-    <ImageView
-        android:layout_width="@dimen/alert_icon_width"
-        android:layout_height="@dimen/alert_icon_height"
-        android:layout_marginTop="@dimen/icon_top_margin"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/icon_alert"/>
+    <RelativeLayout
+        android:layout_width="@dimen/dialog_emailpass_alert_width"
+        android:layout_height="@dimen/dialog_emailpass_alert_height">
 
-    <TextView
-        android:text="@string/account_emailpass_alert_text1"
-        android:textColor="@color/body_default"
-        android:textSize="@dimen/dialog_text_size"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="76dp"
-        android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="@dimen/alert_icon_width"
+            android:layout_height="@dimen/alert_icon_height"
+            android:layout_marginTop="@dimen/icon_top_margin"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/icon_alert"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-
-        <Button
+        <TextView
+            android:text="@string/account_emailpass_alert_text1"
+            android:textColor="@color/body_default"
+            android:textSize="@dimen/dialog_text_size"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:clickable="false"/>
+            android:layout_centerInParent="true"
+            android:layout_marginTop="76dp"
+            android:layout_centerHorizontal="true"/>
 
-        <Button
-            android:id="@+id/account_emailpass_alert_yes"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="@dimen/dialog_bottom_button_text_size"
-            android:textColor="@color/point"
-            android:background="@android:color/transparent"
-            android:text="@string/account_emailpass_alert_bottom_button_yes"/>
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
 
-    </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:clickable="false"/>
 
+            <Button
+                android:id="@+id/account_emailpass_alert_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/dialog_bottom_button_text_size"
+                android:textColor="@color/point"
+                android:background="@android:color/transparent"
+                android:text="@string/account_emailpass_alert_bottom_button_yes"/>
 
-
-</RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

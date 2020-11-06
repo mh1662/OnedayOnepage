@@ -1,29 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
     <data>
-        <!--variable
-            name="viewmodel"
-            type="com.myapp.data.ViewModel" /-->
+        <variable
+            name="login"
+            type="com.mh16629.onedayonepage.login.LoginActivity"/>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/login_button_google"
+        <LinearLayout
+            android:id="@+id/login_choose_signUp_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_button_text_google" />
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="48dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/login_button_anonymous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login_button_text_anonymous" />
+            <Button
+                android:id="@+id/login_button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_button_text_login" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/login_button_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_button_text_google" />
+
+            <Button
+                android:id="@+id/login_button_anonymous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_button_text_anonymous" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/login_signIn_layout"
+            android:orientation="vertical"
+            android:layout_width="296dp"
+            android:layout_height="272dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="48dp"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/login_signIn_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="UserEmail"
+                android:inputType="textEmailAddress"
+                />
+
+            <EditText
+                android:id="@+id/login_signIn_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                />
+
+            <Button
+                android:id="@+id/login_signIn_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="로그인"
+                />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:id="@+id/login_signIn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="left|center_vertical"
+                    android:text="돌아가기"
+                    android:background="@android:color/transparent"
+                    android:textSize="12sp"
+                    />
+
+                <Button
+                    android:id="@+id/login_signIn_find_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right|center_vertical"
+                    android:text="아이디/비밀번호 찾기"
+                    android:background="@android:color/transparent"
+                    android:textSize="12sp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

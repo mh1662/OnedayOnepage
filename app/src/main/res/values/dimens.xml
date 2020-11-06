@@ -15,6 +15,10 @@
     <dimen name="text_normal_size">16sp</dimen>
     <dimen name="text_message_size">12sp</dimen>
 
+    <dimen name="dialog_signout_width">276dp</dimen>
+    <dimen name="dialog_signout_height">200dp</dimen>
+    <dimen name="dialog_user_delete_width">276dp</dimen>
+    <dimen name="dialog_user_delete_height">200dp</dimen>
     <dimen name="dialog_anonymous_alert_width">276dp</dimen>
     <dimen name="dialog_anonymous_alert_height">200dp</dimen>
     <dimen name="dialog_username_update_width">276dp</dimen>
@@ -31,8 +35,6 @@
     <dimen name="dialog_text_size">14sp</dimen>
     <dimen name="dialog_edit_text_hint_size">16sp</dimen>
     <dimen name="dialog_edit_text_width">208dp</dimen>
-
-    <dimen name="dialog_">208dp</dimen>
 
     <dimen name="first_user_photo_button_width">140dp</dimen>
     <dimen name="first_user_photo_button_height">140dp</dimen>
