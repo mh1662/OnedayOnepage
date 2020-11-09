@@ -13,14 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".account.AccountPasswordChangeActivity"
+            android:name=".account.AccountPasswordChangeCompleteActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".account.AccountPasswordChangeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".account.AccountCleanupCompleteActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".account.AccountDeleteCompleteActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".account.AccountDeleteActivity"
             android:theme="@style/AppTheme.NoActionBar" />
