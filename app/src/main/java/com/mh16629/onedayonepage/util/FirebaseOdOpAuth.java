@@ -60,22 +60,48 @@ public class FirebaseOdOpAuth {
     }
 
     /**
-     * 익명 사용자 로그인
+     * 익명 사용자 생성
      */
-    public void signInAnonymously() {
+    public void createUserAnonymously() {
         mAuth.signInAnonymously()
                 .addOnCompleteListener((Activity) mContext, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "signInAnonymously:success");
+                            Log.d(TAG, "createUserAnonymously:success");
                             currentUser = mAuth.getCurrentUser();
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
-                            Log.w(TAG, "signInAnonymously:failure", task.getException());
+                            Log.w(TAG, "createUserAnonymously:failure", task.getException());
                         }
                     }
                 });
+    }
+
+    /**
+     * create FirstUser
+     * 이메일을 지정해 사용자 생성, 프로필 업데이트
+     */
+    public void createFirstUser(String email, String password, final String userName, final Uri userPhoto) {
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener((Activity) mContext, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "createFirstUser:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            Log.w(TAG, "createFirstUser:failure", task.getException());
+                        }
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //firebase유저 생성 완료 후 유저 프로필 업데이트
+                        updateProfile(userName, userPhoto);
+                    }
+        });
     }
 
     /**
@@ -98,7 +124,6 @@ public class FirebaseOdOpAuth {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-//                            currentUser = mAuth.getCurrentUser();
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                         }
@@ -112,7 +137,6 @@ public class FirebaseOdOpAuth {
     public void linkAccount(String email, String password) {
         AuthCredential credential = EmailAuthProvider.getCredential(email, password);
 
-//        currentUser.linkWithCredential(credential)
         mAuth.getCurrentUser().linkWithCredential(credential)
                 .addOnCompleteListener((Activity) mContext, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -134,19 +158,23 @@ public class FirebaseOdOpAuth {
      */
     public void updateProfile(String userName, Uri userPhoto) {
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseUser user = mAuth.getCurrentUser();
+//        FirebaseUser user = mAuth.getCurrentUser();
 
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
             .setDisplayName(userName)
                 .setPhotoUri(userPhoto)
                 .build();
 
-        user.updateProfile(profileUpdates)
+        mAuth.getCurrentUser().updateProfile(profileUpdates)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "User profile updated.");
+                            Log.d(TAG, "updateProfile: success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            Log.d(TAG, "updateProfile: fail");
+
                         }
                     }
                 });
