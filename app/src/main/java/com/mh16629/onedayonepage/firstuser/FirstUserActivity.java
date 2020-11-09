@@ -337,12 +337,10 @@ public class FirstUserActivity extends AppCompatActivity {
         public void onClick(View view) {
             int tag = viewPager.getCurrentItem();
             if (tag == INDEX_FRAGMENT4_COMPLETE) {
-                //익명 유저 생성, 프로필 설정
+                //유저 생성, 프로필 설정
                 Log.d(TAG, "moveCompletePageListener auth start");
                 FirebaseOdOpAuth mAuth = new FirebaseOdOpAuth(mContext);
-                mAuth.signInAnonymously();
-                mAuth.updateProfile(mFirstUserName, mFirstUserPhotoUri);
-                mAuth.linkAccount(mFirstUserEmail, mFirstUserPassword);
+                mAuth.createFirstUser(mFirstUserEmail, mFirstUserPassword, mFirstUserName, mFirstUserPhotoUri);
                 Log.d(TAG, "moveCompletePageListener auth end");
 
                 //FirstUser5CongrateFragment로 이동
