@@ -246,6 +246,8 @@
     <string name="book_edit_publishYM_hint">날짜 선택</string>
     <string name="book_edit_tag_hint">경제, IT, 주식, 재태크, 금융</string>
     <string name="book_edit_goalYM_hint">날짜 선택</string>
+
+    <string name="book_edit_bottom_button_text">수정하기</string>
     <!-- book edit end -->
 
     <!-- book search start -->

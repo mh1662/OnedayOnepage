@@ -70,7 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/account_cleanup_input_hint"
-                android:layout_marginTop="88dp" />
+                android:maxLines="1"
+                android:layout_marginTop="88dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
