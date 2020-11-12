@@ -47,10 +47,10 @@
                 android:id="@+id/book_new_bottom_button_add"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/first_user_bottom_button_height"
-                android:background="@color/point"
+                android:background="@color/inactive_shape"
                 android:text="@string/book_new_bottom_button_add"
                 android:textSize="18sp"
-                android:textColor="#ffffff"
+                android:textColor="@color/inactive_font"
                 android:gravity="center" />
 
         </LinearLayout>
