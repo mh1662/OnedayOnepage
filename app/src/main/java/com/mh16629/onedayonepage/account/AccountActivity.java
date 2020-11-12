@@ -15,8 +15,7 @@ import android.widget.Toast;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.ActivityAccountBinding;
-import com.mh16629.onedayonepage.login.GoogleSignInActivity;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
+import com.mh16629.onedayonepage.firebase.FirebaseOdOpAuth;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 

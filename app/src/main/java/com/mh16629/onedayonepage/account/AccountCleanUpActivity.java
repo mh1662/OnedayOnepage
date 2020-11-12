@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.ActivityAccountCleanUpBinding;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
+import com.mh16629.onedayonepage.firebase.FirebaseOdOpAuth;
 
 public class AccountCleanUpActivity extends AppCompatActivity {
 

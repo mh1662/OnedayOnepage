@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.util.InputChecker;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -165,7 +166,7 @@ public class FirstUser21PasswordFragment extends Fragment {
         @Override
         public void afterTextChanged(Editable editable) {
             String passwordCheck = editTextUserPasswordCheck.getText().toString();
-            if (isPassValid(editable.toString())) {
+            if (InputChecker.isPassValid(editable.toString())) {
                 //패스워드 규약O
                 setPasswordStatus(passwordStatus2Currect);
                 setPasswordCheckStatus(passwordCheckStatus0Empty);
@@ -208,7 +209,7 @@ public class FirstUser21PasswordFragment extends Fragment {
 //                editTextUserPasswordCheck.setText("");
                 ((FirstUserActivity)FirstUserActivity.mContext).setbottomLayout(BOTTOM_LAYOUT21_PASSWORD_DISABLE);
             } else {
-                if (isPassValid(password)) {
+                if (InputChecker.isPassValid(password)) {
                     if (password.equals(editable.toString())) {
                         //패스워드 일치
                         setPasswordStatus(passwordStatus2Currect);
@@ -230,24 +231,6 @@ public class FirstUser21PasswordFragment extends Fragment {
             }
         }
     };
-
-    /**
-     * 패스워드 형식 체크
-     *  ^               문자열 시작
-     *  (?=.*[0-9])     숫자 포함
-     *  (?=.*[a-z])     영문자 포함
-     *  (?=\S+$)        공백 없음
-     *  .{6,}           6글자 이상
-     *  $               문자열 끝
-     * @param passInput
-     * @return
-     */
-    public boolean isPassValid (String passInput) {
-        String expression = "^(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{6,}$";
-        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(passInput);
-        return matcher.matches();
-    }
 
     public String getFirstUserPassword() {
         EditText et = (EditText)getView().findViewById(R.id.first_user_password);

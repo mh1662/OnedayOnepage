@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.util.InputChecker;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -56,7 +57,7 @@ public class FirstUser2EmailFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (isEmailValid(editable.toString())) {
+                if (InputChecker.isEmailValid(editable.toString())) {
                     ((FirstUserActivity)FirstUserActivity.mContext).setbottomLayout(BOTTOM_LAYOUT2_EMAIL_ABLE);
                 } else {
                     ((FirstUserActivity)FirstUserActivity.mContext).setbottomLayout(BOTTOM_LAYOUT2_EMAIL_DISABLE);
@@ -67,12 +68,6 @@ public class FirstUser2EmailFragment extends Fragment {
         return v;
     }
 
-    public static boolean isEmailValid(String email) {
-        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
 
     public String getFirstUserEmail(){
         EditText et = (EditText)getView().findViewById(R.id.first_user_email);
