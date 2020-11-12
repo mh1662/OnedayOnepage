@@ -44,7 +44,8 @@ dependencies {
     // firebase
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     // firebase storage
-    implementation 'com.google.firebase:firebase-storage:19.2.0'
+//    implementation 'com.google.firebase:firebase-storage:19.2.0'
+    implementation 'com.google.firebase:firebase-firestore:21.2.1'
     // firebase login
 //    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
     implementation 'com.google.firebase:firebase-auth:19.3.2'

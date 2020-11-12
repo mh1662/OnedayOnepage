@@ -114,6 +114,8 @@
     <!-- ACCOUNT start -->
     <string name="account_toolbar_title">계정 관리</string>
 
+    <string name="account_user_name">사용자 이름</string>
+    <string name="account_user_email">abcd@email.com</string>
     <string name="account_linkWithSignIn">계정 연동</string>
     <string name="account_passwordUpdate">비밀번호 변경</string>
     <string name="account_signOut">로그아웃</string>
@@ -166,6 +168,9 @@
     <string name="account_password_change_re_password_text">비밀번호 확인</string>
     <string name="account_password_change_re_password_input_hint">다시 한 번 입력해 주세요.</string>
     <string name="account_password_change_re_password_input_message">비밀번호를 입력해주세요.</string>
+
+    <string name="account_password_change_complete_text">비밀번호가 변경됐어요.</string>
+    <string name="account_password_change_complete_button_text">확인했어요</string>
     <!-- ACCOUNT PASSWORD CHANGE end -->
 
     <!-- ACCOUNT USERNAME UPDATE start DIALOG -->
@@ -222,6 +227,8 @@
     <string name="book_new_publishYM_hint">날짜 선택</string>
     <string name="book_new_tag_hint">경제, IT, 주식, 재태크, 금융</string>
     <string name="book_new_goalYM_hint">날짜 선택</string>
+
+    <string name="book_new_bottom_button_add">책 추가하기</string>
     <!-- book new end -->
 
     <!-- book edit start -->
@@ -241,6 +248,8 @@
     <string name="book_edit_publishYM_hint">날짜 선택</string>
     <string name="book_edit_tag_hint">경제, IT, 주식, 재태크, 금융</string>
     <string name="book_edit_goalYM_hint">날짜 선택</string>
+
+    <string name="book_edit_bottom_button_text">수정하기</string>
     <!-- book edit end -->
 
     <!-- book search start -->

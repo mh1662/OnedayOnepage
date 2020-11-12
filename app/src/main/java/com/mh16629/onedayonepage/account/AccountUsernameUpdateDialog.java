@@ -1,24 +1,17 @@
 package com.mh16629.onedayonepage.account;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.ActivityLoginBinding;
 import com.mh16629.onedayonepage.databinding.DialogAccountUsernameUpdateBinding;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
-
-import org.w3c.dom.Text;
+import com.mh16629.onedayonepage.firebase.FirebaseOdOpAuth;
 
 public class AccountUsernameUpdateDialog extends Dialog implements
         View.OnClickListener {

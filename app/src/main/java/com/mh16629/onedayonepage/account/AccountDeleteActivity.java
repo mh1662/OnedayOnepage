@@ -3,7 +3,7 @@ package com.mh16629.onedayonepage.account;
 import androidx.appcompat.app.AppCompatActivity;
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.ActivityAccountDeleteBinding;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
+import com.mh16629.onedayonepage.firebase.FirebaseOdOpAuth;
 
 import android.content.Context;
 import android.os.Bundle;

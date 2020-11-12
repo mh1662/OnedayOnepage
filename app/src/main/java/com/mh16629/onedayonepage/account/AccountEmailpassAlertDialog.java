@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.databinding.DialogAccountUsernameUpdateBinding;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
 
 public class AccountEmailpassAlertDialog extends Dialog implements
         View.OnClickListener {

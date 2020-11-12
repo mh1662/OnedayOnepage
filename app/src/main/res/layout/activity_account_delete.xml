@@ -69,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/account_delete_input_email_hint"
+                android:maxLines="1"
                 android:layout_marginTop="88dp"/>
 
             <TextView

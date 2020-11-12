@@ -55,7 +55,7 @@
             android:gravity="center"
             android:layout_marginHorizontal="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="100dp"/>
+            android:layout_marginBottom="88dp"/>
 
     </RelativeLayout>
 </layout>

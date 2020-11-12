@@ -1,4 +1,4 @@
-package com.mh16629.onedayonepage.util;
+package com.mh16629.onedayonepage.firebase;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class FirebaseOdOpAuth {
 
-    private static final String TAG = "FirebaseAuth";
+    private static final String TAG = "FirebaseOdOpAuth";
 
     private Context mContext;
     private com.google.firebase.auth.FirebaseAuth mAuth;

@@ -46,35 +46,34 @@
                 android:layout_centerInParent="true"
                 android:background="@android:color/transparent"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/account_user_photo" />
+                android:layout_marginTop="16dp"
+                android:src="@drawable/account_user_photo" />
 
             <ImageButton
                 android:id="@+id/account_icon_userPhotoUpdate"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@android:color/transparent"
-                app:srcCompat="@drawable/icon_camera"
+                android:src="@drawable/icon_camera"
                 android:scaleType="fitCenter"
                 android:layout_alignRight="@id/account_userPhoto"
                 android:layout_alignEnd="@id/account_userPhoto" />
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="@dimen/text_vertical_spacing" >
+            android:layout_marginTop="8dp" >
 
             <TextView
                 android:id="@+id/account_userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_normal_size"
                 android:textColor="@color/body_default"
-                android:text="사용자 이름" />
+                android:text="@string/account_user_name"
+                android:layout_centerHorizontal="true"/>
 
             <ImageButton
                 android:id="@+id/account_icon_nameUpdate"
@@ -82,25 +81,19 @@
                 android:background="@android:color/transparent"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:scaleType="fitCenter"
-                />
+                android:layout_toRightOf="@id/account_userName"
+                android:scaleType="fitCenter"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/account_userEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
+            android:textSize="12sp"
             android:textColor="@color/body_default"
-            android:text="유저 이메일" />
-
-        <TextView
-            android:id="@+id/account_userUid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Uid" />
+            android:text="@string/account_user_email" />
 
         <!--Button
             android:id="@+id/account_button_linkWithSignIn"
@@ -116,27 +109,54 @@
 
         <Button
             android:id="@+id/account_button_passwordUpdate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_passwordUpdate" />
+            android:textSize="@dimen/text_normal_size"
+            android:paddingLeft="48dp"
+            android:gravity="center_vertical"
+            android:text="@string/account_passwordUpdate"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="40dp"/>
 
         <Button
             android:id="@+id/account_button_signOut"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_signOut" />
+            android:textSize="@dimen/text_normal_size"
+            android:paddingLeft="48dp"
+            android:gravity="center_vertical"
+            android:text="@string/account_signOut"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="12dp"/>
 
         <Button
             android:id="@+id/account_button_cleanup"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_cleanup" />
+            android:textSize="@dimen/text_normal_size"
+            android:paddingLeft="48dp"
+            android:gravity="center_vertical"
+            android:text="@string/account_cleanup"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="12dp"/>
 
         <Button
             android:id="@+id/account_button_userDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal_size"
+            android:paddingLeft="48dp"
+            android:gravity="center_vertical"
+            android:text="@string/account_userDelete"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/account_userUid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/account_userDelete" />
+            android:text="Uid"
+            android:layout_marginTop="100dp"/>
 
     </LinearLayout>
 </layout>

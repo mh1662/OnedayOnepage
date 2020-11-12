@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 
 import com.mh16629.onedayonepage.R;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
+import com.mh16629.onedayonepage.firebase.FirebaseOdOpAuth;
 
 public class SignOutDialog extends Dialog implements
         View.OnClickListener{

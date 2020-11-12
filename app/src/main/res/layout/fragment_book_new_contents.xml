@@ -8,8 +8,8 @@
     tools:context=".booknew.BookNewContentsFragment">
 
     <ImageView
-        android:layout_width="@dimen/main_old_book_cover_width"
-        android:layout_height="@dimen/main_old_book_cover_height"
+        android:layout_width="@dimen/book_edit_book_cover_width"
+        android:layout_height="@dimen/book_edit_book_cover_height"
         android:layout_gravity="center_horizontal"
         android:background="@color/cardview_dark_background"/>
 

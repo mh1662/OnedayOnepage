@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/book_edit_toolbar"
         android:layout_width="match_parent"
@@ -20,11 +19,29 @@
             android:textColor="#000000"
             android:lineSpacingExtra="8sp"
             android:text="@string/book_edit_toolbar_title" />
-
     </androidx.appcompat.widget.Toolbar>
 
     <include layout="@layout/fragment_book_edit_contents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/book_edit_bottom_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible">
+        <Button
+            android:id="@+id/book_edit_bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_button_height"
+            android:background="@color/point"
+            android:text="@string/book_edit_bottom_button_text"
+            android:textSize="@dimen/bottom_button_text_size"
+            android:textColor="#ffffff"
+            android:clickable="false"
+            android:gravity="center"/>
+    </LinearLayout>
+
+</RelativeLayout>
