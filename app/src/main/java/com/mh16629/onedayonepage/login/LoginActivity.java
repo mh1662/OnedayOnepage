@@ -4,32 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-//import com.firebase.ui.auth.AuthUI;
-//import com.firebase.ui.auth.IdpResponse;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import com.google.firebase.storage.FirebaseStorage;
 import com.mh16629.onedayonepage.R;
-import com.mh16629.onedayonepage.account.AccountCleanUpActivity;
-import com.mh16629.onedayonepage.account.SignOutDialog;
-import com.mh16629.onedayonepage.booksearch.BookSearchActivity;
 import com.mh16629.onedayonepage.databinding.ActivityLoginBinding;
 import com.mh16629.onedayonepage.main.MainActivity;
-import com.mh16629.onedayonepage.util.FirebaseOdOpAuth;
+import com.mh16629.onedayonepage.firebase.FirebaseOdOpAuth;
+import com.mh16629.onedayonepage.util.InputChecker;
 
 public class LoginActivity extends BaseActivity implements
         View.OnClickListener {
@@ -88,10 +69,26 @@ public class LoginActivity extends BaseActivity implements
     private void signIn() {
         Log.d(TAG, "signIn");
 
+        String email = mBinding.loginSignInEmail.getText().toString();
+        String password = mBinding.loginSignInPassword.getText().toString();
+
         //FIXME: 이메일, 패스워드 입력체크
+        if (InputChecker.isNullorEmpty(email) && InputChecker.isEmailValid(email)) {
+            Toast toastMessage_share = Toast.makeText(this, "올바른 이메일을 입력해 주세요", Toast.LENGTH_SHORT);
+            toastMessage_share.show();
 
+            return;
+        } else if (InputChecker.isNullorEmpty(password) && InputChecker.isPassValid(password)) {
+            Toast toastMessage_share = Toast.makeText(this, "올바른 비밀번호를 입력해 주세요", Toast.LENGTH_SHORT);
+            toastMessage_share.show();
 
-        mAuth.signIn(mBinding.loginSignInEmail.getText().toString(), mBinding.loginSignInPassword.getText().toString());
+            return;
+        }
+
+        //로그인
+        mAuth.signIn(email, password);
+
+        //TODO: Firebase보안관련 exception처리 추가
 
         Intent intentMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intentMain);
