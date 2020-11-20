@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="11dp">
+    
+    <ImageView
+        android:id="@+id/item_book_search_img"
+        android:layout_width="76dp"
+        android:layout_height="112dp"
+        android:background="@color/point" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="8dp">
+
+        <TextView
+            android:id="@+id/item_book_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:textColor="@color/body_default"
+            android:text="책 이름" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp" >
+
+            <TextView
+                android:id="@+id/item_book_search_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textStyle="normal"
+                android:textSize="11sp"
+                android:textColor="@color/body_default"
+                android:text="작가" />
+
+            <TextView
+                android:id="@+id/item_book_search_pubDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textStyle="normal"
+                android:textSize="11sp"
+                android:textColor="@color/body_default"
+                android:text="YYYY년 MM월" />
+
+            <TextView
+                android:id="@+id/item_book_search_publisher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/item_book_search_pubDate"
+                android:layout_marginRight="9dp"
+                android:textStyle="normal"
+                android:textSize="11sp"
+                android:textColor="@color/body_default"
+                android:text="출판사" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_book_search_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="3"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="7dp"
+            android:textStyle="normal"
+            android:textSize="10sp"
+            android:textColor="@color/icon_default"
+            android:lineSpacingExtra="4sp"
+            android:ellipsize="end"
+            android:text="책소개"/>
+
+    </LinearLayout>
+</LinearLayout>
