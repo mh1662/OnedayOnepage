@@ -1,16 +1,16 @@
 package com.mh16629.onedayonepage.aladdin;
 
 public class AladdinBookSearchItem {
-    private int itemId;
+    private String itemId;
     private String title = "";
     private String link = "";
     private String author = "";
     private String pubDate = "";
     private String description = "";
-    private String imgRrlStr = "";
+    private String imgUrlStr = "";
     private String publisher = "";
 
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
@@ -34,15 +34,15 @@ public class AladdinBookSearchItem {
         return description;
     }
 
-    public String getImgRrlStr() {
-        return imgRrlStr;
+    public String getImgUrlStr() {
+        return imgUrlStr;
     }
 
     public String getPublisher() {
         return publisher;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
@@ -66,8 +66,8 @@ public class AladdinBookSearchItem {
         this.description = description;
     }
 
-    public void setImgRrlStr(String imgRrlStr) {
-        this.imgRrlStr = imgRrlStr;
+    public void setImgUrlStr(String imgUrlStr) {
+        this.imgUrlStr = imgUrlStr;
     }
 
     public void setPublisher(String publisher) {

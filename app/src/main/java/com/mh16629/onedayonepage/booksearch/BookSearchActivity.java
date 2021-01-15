@@ -10,6 +10,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -26,6 +29,7 @@ import com.mh16629.onedayonepage.databinding.ActivityBookSearchBinding;
 import com.mh16629.onedayonepage.util.InputChecker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BookSearchActivity extends AppCompatActivity {
 
@@ -77,11 +81,8 @@ public class BookSearchActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         actionBar.setHomeAsUpIndicator(R.drawable.icon_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
 
-
         mBinding.bookSearchView.setOnQueryTextListener(searchListener);
-
-
-
+        mBinding.bookSearchResultListView.setOnItemClickListener(listviewClickListener);
 
     }
 
@@ -116,6 +117,21 @@ public class BookSearchActivity extends AppCompatActivity {
         }
 
     };
+
+    /*
+    ListView Click Event
+     */
+    ListView.OnItemClickListener listviewClickListener = new ListView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+            Toast.makeText(BookSearchActivity.this, adapter.getItem(position).getItemId(), Toast.LENGTH_SHORT).show();
+
+            Intent intentNewBook = new Intent(getApplicationContext(), BookNewActivity.class);
+            intentNewBook.putExtra("itemId", adapter.getItem(position).getItemId());
+            startActivity(intentNewBook);
+        }
+    };
+
 
     /**
      *
