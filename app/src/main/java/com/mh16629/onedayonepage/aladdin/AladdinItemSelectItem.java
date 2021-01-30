@@ -1,18 +1,16 @@
 package com.mh16629.onedayonepage.aladdin;
 
-public class AladdinBookSearchItem {
-    private String itemId;
+public class AladdinItemSelectItem {
+
     private String title = "";
     private String link = "";
     private String author = "";
     private String pubDate = "";
     private String description = "";
-    private String imgUrlStr = "";
-    private String publisher = "";
-
-    public String getItemId() {
-        return itemId;
-    }
+    private String cover = "";
+    private String categoryId = "";
+    private String categoryName = "";
+    private String publisher= "";
 
     public String getTitle() {
         return title;
@@ -34,16 +32,20 @@ public class AladdinBookSearchItem {
         return description;
     }
 
-    public String getImgUrlStr() {
-        return imgUrlStr;
+    public String getCover() {
+        return cover;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
     }
 
     public String getPublisher() {
         return publisher;
-    }
-
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
     }
 
     public void setTitle(String title) {
@@ -66,11 +68,20 @@ public class AladdinBookSearchItem {
         this.description = description;
     }
 
-    public void setImgUrlStr(String imgUrlStr) {
-        this.imgUrlStr = imgUrlStr;
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 }
+
