@@ -1,5 +1,6 @@
 package com.mh16629.onedayonepage.booknew;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,18 +12,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
 import com.mh16629.onedayonepage.R;
+import com.mh16629.onedayonepage.aladdin.AladdinBookSearchItem;
+import com.mh16629.onedayonepage.aladdin.AladdinItemSelectItem;
 import com.mh16629.onedayonepage.databinding.ActivityBookNewBinding;
 import com.mh16629.onedayonepage.firebase.FirebaseAccessStorage;
+
+import java.util.ArrayList;
 
 public class BookNewActivity extends AppCompatActivity implements
         View.OnClickListener{
 
     private static final String TAG = "BookNewActivity";
 
+    public static Context mContext;
     private ActivityBookNewBinding mBinding;
     private FirebaseAccessStorage mFireStore;
-
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -39,6 +43,7 @@ public class BookNewActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_new);
 
+        mContext = this;
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_book_new);
         mFireStore = FirebaseAccessStorage.getInstance();
 
@@ -63,4 +68,34 @@ public class BookNewActivity extends AppCompatActivity implements
             }
         }
     }
+
+    /**
+     * AladdinItemSelectTask
+     *      return 결과 화면 표시
+     */
+    public void setSelectItemResult(final ArrayList<AladdinItemSelectItem> list) {
+
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //TODO: AladdinItemSelectTask 의 결과 화면 표시
+
+            }
+        });
+    }
+
+    /**
+     * AladdinItemSelectTask
+     *      return 0 결과 화면 표시
+     */
+    public void setResultZero() {
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //TODO: AladdinItemSelectTask 의 결과 화면 표시
+
+            }
+        });
+    }
+
 }

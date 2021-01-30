@@ -3,8 +3,6 @@ package com.mh16629.onedayonepage.booksearch;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,13 +21,12 @@ import androidx.appcompat.widget.Toolbar;
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.aladdin.AladdinBookSearchItem;
 import com.mh16629.onedayonepage.aladdin.AladdinOpenAPI;
-import com.mh16629.onedayonepage.aladdin.AladdinOpenAPIHandler;
+import com.mh16629.onedayonepage.aladdin.AladdinOpenAPISearchBookHandler;
 import com.mh16629.onedayonepage.booknew.BookNewActivity;
 import com.mh16629.onedayonepage.databinding.ActivityBookSearchBinding;
 import com.mh16629.onedayonepage.util.InputChecker;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BookSearchActivity extends AppCompatActivity {
 
@@ -93,14 +90,13 @@ public class BookSearchActivity extends AppCompatActivity {
         //검색 버튼을 눌렀을 경우
         @Override
         public boolean onQueryTextSubmit(String query) {
-//            SearchView inputText = (SearchView) findViewById(R.id.book_search_view);
 
             if (!InputChecker.isNullorEmpty(query)){
                 try {
-                    String url = AladdinOpenAPI.GetUrl(query);
-                    AladdinOpenAPIHandler api = new AladdinOpenAPIHandler();
-                    api.parseXml(url);
-                    for(AladdinBookSearchItem item : api.Items) {
+                    String url = AladdinOpenAPI.GetSearchBookUrl(query);
+                    AladdinOpenAPISearchBookHandler api = new AladdinOpenAPISearchBookHandler();
+                    api.searchBook(url);
+                    for(AladdinBookSearchItem item : api.Books) {
                         Log.d(TAG, "알라딘 open api test: "+item.getTitle()+":"+item.getLink());
                     }
                 }catch (Exception ex) {
@@ -124,6 +120,7 @@ public class BookSearchActivity extends AppCompatActivity {
     ListView.OnItemClickListener listviewClickListener = new ListView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+            //FIXME: BookNewActivity 구현 후 하단 토스트 메세지 삭제
             Toast.makeText(BookSearchActivity.this, adapter.getItem(position).getItemId(), Toast.LENGTH_SHORT).show();
 
             Intent intentNewBook = new Intent(getApplicationContext(), BookNewActivity.class);
