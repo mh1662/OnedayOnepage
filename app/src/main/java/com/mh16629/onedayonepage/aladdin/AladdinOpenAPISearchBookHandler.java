@@ -2,8 +2,10 @@ package com.mh16629.onedayonepage.aladdin;
 
 import android.util.Log;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
@@ -82,8 +84,14 @@ public class AladdinOpenAPISearchBookHandler extends DefaultHandler {
                     currentBook.setAuthor(tempValue);
                 }
             } else if (localName.equals("pubDate")) {
-                //FIXME: 날짜 포맷 변경
-                currentBook.setPubDate(tempValue);
+                SimpleDateFormat transFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z");
+                Date pubDate = null;
+                try {
+                    pubDate = transFormat.parse(tempValue);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                currentBook.setPubDate(pubDate);
             } else if (localName.equals("description")) {
                 if (tempValue.contains(descriptionExceptTagStart)) {
                     String subDescription = null;

@@ -1,11 +1,13 @@
 package com.mh16629.onedayonepage.aladdin;
 
+import java.util.Date;
+
 public class AladdinItemSelectItem {
 
     private String title = "";
     private String link = "";
     private String author = "";
-    private String pubDate = "";
+    private Date pubDate;
     private String description = "";
     private String cover = "";
     private String categoryId = "";
@@ -24,7 +26,7 @@ public class AladdinItemSelectItem {
         return author;
     }
 
-    public String getPubDate() {
+    public Date getPubDate() {
         return pubDate;
     }
 
@@ -60,7 +62,7 @@ public class AladdinItemSelectItem {
         this.author = author;
     }
 
-    public void setPubDate(String pubDate) {
+    public void setPubDate(Date pubDate) {
         this.pubDate = pubDate;
     }
 
