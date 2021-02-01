@@ -1,8 +1,9 @@
 package com.mh16629.onedayonepage.booksearch;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.Uri;
-import android.text.Layout;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.aladdin.AladdinBookSearchItem;
+import com.mh16629.onedayonepage.util.StringParser;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BookSearchResultListViewAdapter extends BaseAdapter {
 
@@ -55,15 +58,26 @@ public class BookSearchResultListViewAdapter extends BaseAdapter {
         AladdinBookSearchItem listViewItem = listViewItemList.get(position);
 
         //아이템 내 각 위젯에 데이터 반영
-        //FIXME: 이미지 Uri파싱을 여기서 하도록 수정
-//        itemBookSearchImg.setImageURI(listViewItem.getImgUri());
+        try {
+            itemBookSearchImg.setImageBitmap(getImageBitmap(listViewItem.getImgUrlStr()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         itemBookSearchTitle.setText(listViewItem.getTitle());
         itemBookSearchAuthor.setText(listViewItem.getAuthor());
-        itemBookSearchPubDate.setText(listViewItem.getPubDate());
+        itemBookSearchPubDate.setText(StringParser.dateStringToString(listViewItem.getPubDate(), StringParser.DATEFORMAT_0));
         itemBookSearchPublisher.setText(listViewItem.getPublisher());
         itemBookSearchDescription.setText(listViewItem.getDescription());
 
         return convertView;
+    }
+
+    public static Bitmap getImageBitmap(String url) throws Exception  {
+//        ArrayList<AladdinBookSearchItem> list = new ArrayList<AladdinBookSearchItem>();
+//        new AladdinBookSearchTask().execute(xmlUrl);
+        Bitmap bitmap = null;
+        new GetBitmapImgTask().execute(url);
+        return bitmap;
     }
 
     /**
@@ -82,7 +96,7 @@ public class BookSearchResultListViewAdapter extends BaseAdapter {
      * @return
      */
     @Override
-    public Object getItem(int position) {
+    public AladdinBookSearchItem getItem(int position) {
         return listViewItemList.get(position);
     }
 
@@ -95,7 +109,7 @@ public class BookSearchResultListViewAdapter extends BaseAdapter {
      * @param publisher
      * @param description
      */
-    public void addItem(Uri imgUri, String title, String author, String pubDate, String publisher, String description) {
+    public void addItem(Uri imgUri, String title, String author, Date pubDate, String publisher, String description) {
         AladdinBookSearchItem item = new AladdinBookSearchItem();
 
         //FIXME: 이미지 Uri파싱을 여기서 하도록 수정
@@ -121,3 +135,4 @@ public class BookSearchResultListViewAdapter extends BaseAdapter {
         listViewItemList = new ArrayList<AladdinBookSearchItem>();
     }
 }
+

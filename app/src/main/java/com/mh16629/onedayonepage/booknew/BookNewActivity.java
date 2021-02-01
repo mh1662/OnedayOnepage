@@ -1,9 +1,12 @@
 package com.mh16629.onedayonepage.booknew;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -12,10 +15,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
 import com.mh16629.onedayonepage.R;
-import com.mh16629.onedayonepage.aladdin.AladdinBookSearchItem;
 import com.mh16629.onedayonepage.aladdin.AladdinItemSelectItem;
+import com.mh16629.onedayonepage.aladdin.AladdinOpenAPI;
+import com.mh16629.onedayonepage.aladdin.AladdinOpenAPISelectItemHandler;
 import com.mh16629.onedayonepage.databinding.ActivityBookNewBinding;
 import com.mh16629.onedayonepage.firebase.FirebaseAccessStorage;
+import com.mh16629.onedayonepage.util.StringParser;
 
 import java.util.ArrayList;
 
@@ -27,6 +32,10 @@ public class BookNewActivity extends AppCompatActivity implements
     public static Context mContext;
     private ActivityBookNewBinding mBinding;
     private FirebaseAccessStorage mFireStore;
+
+    private final String EXTRA_ITEMID = "ItemId";
+
+    AladdinItemSelectItem currentItem;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -55,8 +64,29 @@ public class BookNewActivity extends AppCompatActivity implements
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         actionBar.setHomeAsUpIndicator(R.drawable.icon_back); //뒤로가기 버튼을 본인이 만든 아이콘으로 하기 위해 필요
 
+        // 현재 Item 초기화
+        currentItem = new AladdinItemSelectItem();
 
         mBinding.bookNewBottomButtonAdd.setOnClickListener(this);
+
+        // BookSearchActivity 의 ItemId를 받아온다.
+        Intent bookSearchIntent = getIntent();
+        String itemId = bookSearchIntent.getStringExtra(EXTRA_ITEMID);
+
+//        mBinding.bookNewInputTitle.setText(itemId);
+
+        // Aladdin 제품 검색
+        try {
+            String url = AladdinOpenAPI.GetSelectItemUrl(itemId);
+            AladdinOpenAPISelectItemHandler apiHandler = new AladdinOpenAPISelectItemHandler();
+            apiHandler.selectItem(url);
+            for(AladdinItemSelectItem item : apiHandler.Item) {
+                Log.d(TAG, "Aladdin open api - Select Item : "+item.getTitle()+":"+item.getLink());
+            }
+        }catch (Exception ex) {
+            Log.w(TAG, "onQueryTextSubmit Exception: " + ex);
+        }
+
 
     }
 
@@ -78,7 +108,20 @@ public class BookNewActivity extends AppCompatActivity implements
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                //TODO: AladdinItemSelectTask 의 결과 화면 표시
+                if (list.size() == 0) {
+                    setResultZero();
+                } else {
+                    // AladdinItemSelectTask 완료 후 로컬변수 currentItem에 보존
+                    currentItem = list.get(0);
+
+                    mBinding.bookNewInputTitle.setText(currentItem.getTitle());
+                    mBinding.bookNewInputAuthor.setText(currentItem.getAuthor());
+                    mBinding.bookNewInputPublisher.setText(currentItem.getPublisher());
+                    //FIXME: 출판일을 Util.StringParser 작성 후 수정
+                    mBinding.bookNewInputYm.setText(StringParser.dateStringToString(currentItem.getPubDate(), StringParser.DATEFORMAT_1));
+
+
+                }
 
             }
         });
@@ -92,8 +135,7 @@ public class BookNewActivity extends AppCompatActivity implements
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                //TODO: AladdinItemSelectTask 의 결과 화면 표시
-
+                Toast.makeText(BookNewActivity.mContext, "책을 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
             }
         });
     }

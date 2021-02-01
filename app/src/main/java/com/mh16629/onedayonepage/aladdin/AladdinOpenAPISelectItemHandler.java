@@ -4,7 +4,10 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class AladdinOpenAPISelectItemHandler extends DefaultHandler {
 
@@ -62,8 +65,15 @@ public class AladdinOpenAPISelectItemHandler extends DefaultHandler {
             } else if (localName.equals("author")) {
                 currentItem.setAuthor(tempValue);
             } else if (localName.equals("pubDate")) {
-                //FIXME: 날짜 포맷 변경
-                currentItem.setPubDate(tempValue);
+                SimpleDateFormat transFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z");
+                Date pubDate = null;
+                try {
+                    pubDate = transFormat.parse(tempValue);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                currentItem.setPubDate(pubDate);
+
             } else if (localName.equals("description")) {
                 currentItem.setDescription(tempValue);
             } else if (localName.equals("cover")) {

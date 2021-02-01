@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -35,6 +34,8 @@ public class BookSearchActivity extends AppCompatActivity {
     public static Context mContext;
     private ActivityBookSearchBinding mBinding;
     private BookSearchResultListViewAdapter adapter;
+
+    private final String EXTRA_ITEMID = "ItemId";
 
 
     @Override
@@ -94,10 +95,10 @@ public class BookSearchActivity extends AppCompatActivity {
             if (!InputChecker.isNullorEmpty(query)){
                 try {
                     String url = AladdinOpenAPI.GetSearchBookUrl(query);
-                    AladdinOpenAPISearchBookHandler api = new AladdinOpenAPISearchBookHandler();
-                    api.searchBook(url);
-                    for(AladdinBookSearchItem item : api.Books) {
-                        Log.d(TAG, "알라딘 open api test: "+item.getTitle()+":"+item.getLink());
+                    AladdinOpenAPISearchBookHandler apiHandler = new AladdinOpenAPISearchBookHandler();
+                    apiHandler.searchBook(url);
+                    for(AladdinBookSearchItem item : apiHandler.Books) {
+                        Log.d(TAG, "Aladdin open api - Search Book : "+item.getTitle()+":"+item.getLink());
                     }
                 }catch (Exception ex) {
                     Log.w(TAG, "onQueryTextSubmit Exception: " + ex);
@@ -120,18 +121,15 @@ public class BookSearchActivity extends AppCompatActivity {
     ListView.OnItemClickListener listviewClickListener = new ListView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-            //FIXME: BookNewActivity 구현 후 하단 토스트 메세지 삭제
-            Toast.makeText(BookSearchActivity.this, adapter.getItem(position).getItemId(), Toast.LENGTH_SHORT).show();
-
             Intent intentNewBook = new Intent(getApplicationContext(), BookNewActivity.class);
-            intentNewBook.putExtra("itemId", adapter.getItem(position).getItemId());
+            intentNewBook.putExtra(EXTRA_ITEMID, adapter.getItem(position).getItemId());
             startActivity(intentNewBook);
         }
     };
 
 
     /**
-     *
+     * 검색 결과 표시 : 결과값 1 이상
      * @param list
      */
     public void setSearchResult(final ArrayList<AladdinBookSearchItem> list) {
@@ -149,6 +147,9 @@ public class BookSearchActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 검색 결과 표시 : 결과값 0
+     */
     public void setSearchResultZero() {
         this.runOnUiThread(new Runnable() {
             @Override
