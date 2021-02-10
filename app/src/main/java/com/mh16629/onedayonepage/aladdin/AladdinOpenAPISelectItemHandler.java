@@ -19,10 +19,6 @@ public class AladdinOpenAPISelectItemHandler extends DefaultHandler {
     private boolean inItemElement = false;
     private String tempValue;
 
-    //FIXME: 날짜 포맷 변경
-//    private static final SimpleDateFormat pubdateParseFormat = new SimpleDateFormat("E, dd MMM ");
-//    private static final SimpleDateFormat pubdateTransFormat = new SimpleDateFormat("");
-
     public AladdinOpenAPISelectItemHandler() {
         Item = new ArrayList<>();
     }
@@ -77,7 +73,7 @@ public class AladdinOpenAPISelectItemHandler extends DefaultHandler {
             } else if (localName.equals("description")) {
                 currentItem.setDescription(tempValue);
             } else if (localName.equals("cover")) {
-                currentItem.setCover(tempValue);
+                currentItem.setCoverURL(tempValue);
             } else if (localName.equals("publisher")) {
                 currentItem.setPublisher(tempValue);
             }

@@ -3,13 +3,14 @@ package com.mh16629.onedayonepage.aladdin;
 import java.util.Date;
 
 public class AladdinBookSearchItem {
+
     private String itemId;
     private String title = "";
     private String link = "";
     private String author = "";
     private Date pubDate;
     private String description = "";
-    private String imgUrlStr = "";
+    private String coverURL = "";
     private String publisher = "";
 
     public String getItemId() {
@@ -36,9 +37,7 @@ public class AladdinBookSearchItem {
         return description;
     }
 
-    public String getImgUrlStr() {
-        return imgUrlStr;
-    }
+    public String getCoverURL() { return coverURL; }
 
     public String getPublisher() {
         return publisher;
@@ -60,17 +59,13 @@ public class AladdinBookSearchItem {
         this.author = author;
     }
 
-    public void setPubDate(Date pubDate) {
-        this.pubDate = pubDate;
-    }
+    public void setPubDate(Date pubDate) { this.pubDate = pubDate; }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setImgUrlStr(String imgUrlStr) {
-        this.imgUrlStr = imgUrlStr;
-    }
+    public void setCoverURL(String coverURL) { this.coverURL = coverURL; }
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;

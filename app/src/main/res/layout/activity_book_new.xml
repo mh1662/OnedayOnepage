@@ -39,7 +39,9 @@
                 android:layout_width="@dimen/book_edit_book_cover_width"
                 android:layout_height="@dimen/book_edit_book_cover_height"
                 android:background="@color/inactive_shape"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
             <ImageButton
                 android:id="@+id/book_new_icon_camera"
                 android:layout_width="@dimen/book_new_icon_camera_width"

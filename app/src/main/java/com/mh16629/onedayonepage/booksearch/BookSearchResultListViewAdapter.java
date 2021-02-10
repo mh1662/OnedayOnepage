@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.mh16629.onedayonepage.R;
 import com.mh16629.onedayonepage.aladdin.AladdinBookSearchItem;
+import com.mh16629.onedayonepage.util.ImageParser;
 import com.mh16629.onedayonepage.util.StringParser;
 
 import java.util.ArrayList;
@@ -55,29 +56,49 @@ public class BookSearchResultListViewAdapter extends BaseAdapter {
         itemBookSearchPublisher = (TextView) convertView.findViewById(R.id.item_book_search_publisher);
         itemBookSearchDescription = (TextView) convertView.findViewById(R.id.item_book_search_description);
 
-        AladdinBookSearchItem listViewItem = listViewItemList.get(position);
+        final AladdinBookSearchItem listViewItem = listViewItemList.get(position);
 
         //아이템 내 각 위젯에 데이터 반영
-        try {
-            itemBookSearchImg.setImageBitmap(getImageBitmap(listViewItem.getImgUrlStr()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         itemBookSearchTitle.setText(listViewItem.getTitle());
         itemBookSearchAuthor.setText(listViewItem.getAuthor());
         itemBookSearchPubDate.setText(StringParser.dateStringToString(listViewItem.getPubDate(), StringParser.DATEFORMAT_0));
         itemBookSearchPublisher.setText(listViewItem.getPublisher());
         itemBookSearchDescription.setText(listViewItem.getDescription());
 
-        return convertView;
-    }
 
-    public static Bitmap getImageBitmap(String url) throws Exception  {
-//        ArrayList<AladdinBookSearchItem> list = new ArrayList<AladdinBookSearchItem>();
-//        new AladdinBookSearchTask().execute(xmlUrl);
-        Bitmap bitmap = null;
-        new GetBitmapImgTask().execute(url);
-        return bitmap;
+        //TODO: ListView Thread로 이미지 표시부분 추가
+
+//        // URL로부터 커버 이미지 취득
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                Bitmap currentCover = null;
+//
+//                try {
+//                    currentCover= ImageParser.getBitmap(listViewItem.getCoverURL());
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                } finally {
+//                    if (currentCover != null) {
+//                        final Bitmap finalCurrentCover = currentCover;
+////                        runOnUiThread(new Runnable() {
+////                            @Override
+////                            public void run() {
+////                                mBinding.bookNewBookCoverButton.setBackgroundColor(0x00000000);
+////                                mBinding.bookNewBookCoverButton.setImageBitmap(finalCurrentCover);
+//                                itemBookSearchImg.setImageBitmap(finalCurrentCover);
+////                            }
+////                        });
+//
+//                    }
+//                }
+//
+//            }
+//        }).start();
+//
+
+        return convertView;
     }
 
     /**
@@ -98,29 +119,6 @@ public class BookSearchResultListViewAdapter extends BaseAdapter {
     @Override
     public AladdinBookSearchItem getItem(int position) {
         return listViewItemList.get(position);
-    }
-
-    /**
-     * 아이템 데이터 추가
-     * @param imgUri
-     * @param title
-     * @param author
-     * @param pubDate
-     * @param publisher
-     * @param description
-     */
-    public void addItem(Uri imgUri, String title, String author, Date pubDate, String publisher, String description) {
-        AladdinBookSearchItem item = new AladdinBookSearchItem();
-
-        //FIXME: 이미지 Uri파싱을 여기서 하도록 수정
-//        item.setImgRrlStr(imgUri);
-        item.setTitle(title);
-        item.setAuthor(author);
-        item.setPubDate(pubDate);
-        item.setPublisher(publisher);
-        item.setDescription(description);
-
-        listViewItemList.add(item);
     }
 
     public void addItem(AladdinBookSearchItem item){

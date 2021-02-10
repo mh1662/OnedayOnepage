@@ -25,10 +25,6 @@ public class AladdinOpenAPISearchBookHandler extends DefaultHandler {
     private static final String descriptionExceptTagStart = "<img";
     private static final String descriptionExceptTagEnd = "<br/>";
 
-    //FIXME: 날짜 포맷 변경
-//    private static final SimpleDateFormat pubdateParseFormat = new SimpleDateFormat("E, dd MMM ");
-//    private static final SimpleDateFormat pubdateTransFormat = new SimpleDateFormat("");
-
     public AladdinOpenAPISearchBookHandler() { Books = new ArrayList<>(); }
 
     public void startElement(String namespace, String localName, String qName, Attributes attributes) {
@@ -75,7 +71,10 @@ public class AladdinOpenAPISearchBookHandler extends DefaultHandler {
             } else if (localName.equals("link")) {
                 currentBook.setLink(tempValue);
             } else if (localName.equals("author")) {
-                //MEMO: ~~"지음" 이라는 문자열 삭제할까? 말까?
+                /**
+                 *  TODO: 알라딘측 제공 데이터의 author가 SelectItem, SearchBook의 사양차이가 있음.
+                 *  SearchBook에서 깔끔하게 나오지 않으니 BookSearchActivity의 저자 레이아웃을 삭제하는건 어떨까?
+                 */
                 if (tempValue.contains(authorExceptTag)) {
                     String subAuthor = null;
                     subAuthor = tempValue.substring(tempValue.lastIndexOf(authorExceptTag) + 2);
@@ -101,7 +100,7 @@ public class AladdinOpenAPISearchBookHandler extends DefaultHandler {
                     currentBook.setDescription(tempValue);
                 }
             } else if (localName.equals("cover")) {
-                currentBook.setImgUrlStr(tempValue);
+                currentBook.setCoverURL(tempValue);
             } else if (localName.equals("publisher")) {
                 currentBook.setPublisher(tempValue);
             }

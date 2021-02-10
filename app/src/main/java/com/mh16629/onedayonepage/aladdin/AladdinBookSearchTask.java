@@ -1,8 +1,10 @@
 package com.mh16629.onedayonepage.aladdin;
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 
 import com.mh16629.onedayonepage.booksearch.BookSearchActivity;
+import com.mh16629.onedayonepage.util.ImageParser;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;

@@ -9,7 +9,7 @@ public class AladdinItemSelectItem {
     private String author = "";
     private Date pubDate;
     private String description = "";
-    private String cover = "";
+    private String coverURL = "";
     private String categoryId = "";
     private String categoryName = "";
     private String publisher= "";
@@ -34,8 +34,8 @@ public class AladdinItemSelectItem {
         return description;
     }
 
-    public String getCover() {
-        return cover;
+    public String getCoverURL() {
+        return coverURL;
     }
 
     public String getCategoryId() {
@@ -70,8 +70,8 @@ public class AladdinItemSelectItem {
         this.description = description;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
+    public void setCoverURL(String coverURL) {
+        this.coverURL = coverURL;
     }
 
     public void setCategoryId(String categoryId) {
