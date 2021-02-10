@@ -2,6 +2,10 @@ package com.mh16629.onedayonepage.booknew;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,8 +24,13 @@ import com.mh16629.onedayonepage.aladdin.AladdinOpenAPI;
 import com.mh16629.onedayonepage.aladdin.AladdinOpenAPISelectItemHandler;
 import com.mh16629.onedayonepage.databinding.ActivityBookNewBinding;
 import com.mh16629.onedayonepage.firebase.FirebaseAccessStorage;
+import com.mh16629.onedayonepage.util.ImageParser;
 import com.mh16629.onedayonepage.util.StringParser;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class BookNewActivity extends AppCompatActivity implements
@@ -94,7 +103,12 @@ public class BookNewActivity extends AppCompatActivity implements
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.book_new_bottom_button_add: {
-                mFireStore.createNewBookTest();
+                //새 책 추가
+                mFireStore.createNewBook(currentItem);
+
+                //TODO:책 추가 후 화면 전환
+
+
             }
         }
     }
@@ -117,8 +131,38 @@ public class BookNewActivity extends AppCompatActivity implements
                     mBinding.bookNewInputTitle.setText(currentItem.getTitle());
                     mBinding.bookNewInputAuthor.setText(currentItem.getAuthor());
                     mBinding.bookNewInputPublisher.setText(currentItem.getPublisher());
-                    //FIXME: 출판일을 Util.StringParser 작성 후 수정
                     mBinding.bookNewInputYm.setText(StringParser.dateStringToString(currentItem.getPubDate(), StringParser.DATEFORMAT_1));
+
+                    // URL로부터 커버 이미지 취득
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Bitmap currentCover = null;
+
+                            try {
+                                currentCover= ImageParser.getBitmap(currentItem.getCoverURL());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            } finally {
+                                if (currentCover != null) {
+                                    final Bitmap finalCurrentCover = currentCover;
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            mBinding.bookNewBookCoverButton.setBackgroundColor(0x00000000);
+                                            mBinding.bookNewBookCoverButton.setImageBitmap(finalCurrentCover);
+                                        }
+                                    });
+                                }
+                            }
+
+                        }
+                    }).start();
+
+
+
+
 
 
                 }

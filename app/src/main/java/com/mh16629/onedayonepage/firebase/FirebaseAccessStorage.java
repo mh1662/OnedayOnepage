@@ -13,6 +13,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.mh16629.onedayonepage.aladdin.AladdinItemSelectItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,6 +48,45 @@ public class FirebaseAccessStorage {
         book.put("author", "테스트용 저자"+mAuth.getCurrentUser().getDisplayName());
         book.put("book_id", "테스트용 책 아이디"+mAuth.getCurrentUser().getDisplayName());
         book.put("category_id", "테스트용 카테고리 아이디"+mAuth.getCurrentUser().getDisplayName());
+
+        //Add a new document with a generated ID
+        mFireStore.collection("BookList")
+                .add(book)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG, "Error adding document", e);
+                    }
+                });
+    }
+
+
+    public void createNewBook(AladdinItemSelectItem item) {
+        //Access a Cloud Firestore instance
+        mFireStore = FirebaseFirestore.getInstance();
+
+        //Create a new book with a name
+        Map<String, Object> book = new HashMap<>();
+        book.put("user_id", mAuth.getUid());
+        book.put("title", item.getTitle());
+        book.put("author", item.getAuthor());
+        book.put("categoryId", item.getCategoryId());
+        book.put("categoryName", item.getCategoryName());
+        book.put("coverURL", item.getCoverURL());
+        book.put("description", item.getDescription());
+        book.put("link", item.getLink());
+        book.put("pubDate", item.getPubDate());
+        book.put("publisher", item.getPublisher());
+        //FIXME: 추후 파싱 데이터 추가(선행: AladdinItemSelectItem)
+//        book.put("", item.get);
+//        book.put("", item.get);
+//        book.put("", item.get);
 
         //Add a new document with a generated ID
         mFireStore.collection("BookList")
